@@ -1,0 +1,85 @@
+{
+  "overall": {
+    "MAE": 0.2121,
+    "RMSE": 0.2308,
+    "AbsRel": 0.0354,
+    "SqRel": 0.0075,
+    "delta_1": 1.0,
+    "n": 4
+  },
+  "overall_scale_aligned": {},
+  "scale_factor": null,
+  "stratified": {
+    "0-5 m": {
+      "MAE": 0.1981,
+      "RMSE": 0.1997,
+      "AbsRel": 0.0567,
+      "SqRel": 0.0114,
+      "delta_1": 1.0,
+      "n": 2
+    },
+    "5-20 m": {
+      "MAE": 0.2261,
+      "RMSE": 0.2582,
+      "AbsRel": 0.0141,
+      "SqRel": 0.0037,
+      "delta_1": 1.0,
+      "n": 2
+    },
+    "20+ m": {
+      "MAE": NaN,
+      "RMSE": NaN,
+      "AbsRel": NaN,
+      "delta_1": NaN,
+      "n": 0
+    }
+  },
+  "stratified_aligned": {},
+  "size_stratified": {
+    "small": {
+      "MAE": NaN,
+      "RMSE": NaN,
+      "AbsRel": NaN,
+      "delta_1": NaN,
+      "n": 0
+    },
+    "medium": {
+      "MAE": 0.2261,
+      "RMSE": 0.2582,
+      "AbsRel": 0.0141,
+      "SqRel": 0.0037,
+      "delta_1": 1.0,
+      "n": 2
+    },
+    "large": {
+      "MAE": 0.1981,
+      "RMSE": 0.1997,
+      "AbsRel": 0.0567,
+      "SqRel": 0.0114,
+      "delta_1": 1.0,
+      "n": 2
+    }
+  },
+  "per_class": {
+    "car": {
+      "MAE": 0.7135,
+      "RMSE": 1.1877,
+      "AbsRel": 0.0886,
+      "SqRel": 0.1419,
+      "delta_1": 1.0,
+      "n": 4
+    },
+    "truck": {
+      "MAE": 0.3508,
+      "RMSE": 0.3508,
+      "AbsRel": 0.0182,
+      "SqRel": 0.0064,
+      "delta_1": 1.0,
+      "n": 1
+    }
+  },
+  "n_detections": 5,
+  "n_evaluated": 4,
+  "conf_threshold": 0.4,
+  "min_valid_ratio": 0.2
+}

@@ -11,7 +11,6 @@ from typing import Dict, Tuple
 import numpy as np
 import cv2
 import torch
-import torchvision.transforms.functional as TF
 from PIL import Image
 from torch.utils.data import Dataset
 

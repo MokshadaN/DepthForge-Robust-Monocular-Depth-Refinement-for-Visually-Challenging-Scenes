@@ -36,6 +36,17 @@ from typing import Dict, List, Optional, Tuple
 import cv2
 import numpy as np
 from PIL import Image
+try:
+    import OpenEXR as _openexr
+    import Imath as _imath
+    _HAS_OPENEXR = True
+except ImportError:
+    _HAS_OPENEXR = False
+try:
+    import imageio.v3 as _iio3
+    _HAS_IMAGEIO3 = True
+except ImportError:
+    _HAS_IMAGEIO3 = False
 
 
 # ---------------------------------------------------------------------------
@@ -52,13 +63,43 @@ def load_gt_depth(gt_path: Path, depth_scale: float = 256.0) -> np.ndarray:
     """
     gt_path = Path(gt_path)
     if gt_path.suffix.lower() == ".exr":
-        # OpenCV can read EXR directly with the ANYDEPTH flag
-        depth = cv2.imread(str(gt_path), cv2.IMREAD_ANYCOLOR | cv2.IMREAD_ANYDEPTH)
-        if depth is None:
-            raise IOError(f"Could not read EXR file: {gt_path}")
-        if depth.ndim == 3:
-            depth = depth[:, :, 0]  # take first channel
-        depth = depth.astype(np.float32)
+        depth = None
+        # --- Try 1: OpenCV (works if compiled with OpenEXR) ---
+        depth_cv = cv2.imread(str(gt_path), cv2.IMREAD_ANYCOLOR | cv2.IMREAD_ANYDEPTH)
+        if depth_cv is not None:
+            depth = (depth_cv[:, :, 0] if depth_cv.ndim == 3 else depth_cv).astype(np.float32)
+        # --- Try 2: OpenEXR Python binding (pip install OpenEXR) ---
+        elif _HAS_OPENEXR:
+            try:
+                f = _openexr.InputFile(str(gt_path))
+                hdr = f.header()
+                dw  = hdr["dataWindow"]
+                W   = dw.max.x - dw.min.x + 1
+                H   = dw.max.y - dw.min.y + 1
+                # pick first channel (R, Y, or Z)
+                ch_name = next(iter(hdr["channels"].keys()))
+                ch_type = hdr["channels"][ch_name].type
+                pt = _imath.PixelType.FLOAT
+                raw = f.channel(ch_name, _imath.PixelType(pt))
+                depth = np.frombuffer(raw, dtype=np.float32).reshape(H, W).copy()
+            except Exception as _e:
+                raise IOError(f"OpenEXR failed on {gt_path}: {_e}") from _e
+        # --- Try 3: imageio.v3 with openexr plugin ---
+        elif _HAS_IMAGEIO3:
+            try:
+                arr = _iio3.imread(str(gt_path), plugin="openexr")
+                depth = (arr[:, :, 0] if arr.ndim == 3 else arr).astype(np.float32)
+            except Exception as _e:
+                raise IOError(
+                    f"Could not read EXR file: {gt_path}\n"
+                    f"  imageio error: {_e}\n"
+                    f"  Fix: pip install OpenEXR"
+                ) from _e
+        else:
+            raise IOError(
+                f"Cannot read EXR file: {gt_path}\n"
+                f"  No EXR reader available. Fix: pip install OpenEXR"
+            )
     else:
         img = np.array(Image.open(str(gt_path)))
         depth = img.astype(np.float32) / depth_scale
@@ -82,7 +123,7 @@ def gt_depth_in_box(
 ) -> Tuple[float, int]:
     """Aggregate GT depth pixels inside bbox or instance mask with the same logic as pred."""
     if mask is not None and mode == "mask":
-        valid_mask = mask & np.isfinite(gt_depth) & (gt_depth > 0)
+        valid_mask = (mask > 0) & np.isfinite(gt_depth) & (gt_depth > 0)
         values = gt_depth[valid_mask]
         if values.size < min_pixels:
             return float("nan"), 0

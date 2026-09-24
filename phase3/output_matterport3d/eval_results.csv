@@ -1,0 +1,9 @@
+image,object_id,class,confidence,x1,y1,x2,y2,roi_mode,pred_depth_m,pred_depth_aligned_m,gt_depth_m,abs_error_m,abs_error_aligned_m,rel_error,rel_error_aligned,pred_valid_px,gt_valid_px,coverage_ratio,filtered,filter_reason
+matterport3d_rgb.png,0,bed,0.497633,384,285,625,384,mask,5.1434,,1.7022,3.4412,,2.0217,,11061,15264,1.000,0,
+matterport3d_rgb.png,1,couch,0.420595,331,283,384,326,mask,6.7915,,2.3790,4.4125,,1.8548,,747,1137,1.000,0,
+matterport3d_rgb.png,2,couch,0.404410,384,285,623,384,mask,5.1413,,1.6963,3.4450,,2.0309,,11011,15073,1.000,0,
+matterport3d_rgb.png,3,chair,0.401816,512,282,547,297,mask,8.8643,,4.5446,4.3196,,0.9505,,368,441,1.000,0,
+matterport3d_rgb.png,4,bed,0.384018,128,298,383,384,mask,6.0574,,2.0622,3.9952,,1.9374,,9785,11609,1.000,0,
+matterport3d_rgb.png,5,person,0.380643,741,212,758,260,mask,5.6958,,2.1584,3.5374,,1.6389,,524,601,1.000,0,
+matterport3d_rgb.png,6,person,0.267696,802,210,860,261,mask,6.1027,,2.3041,3.7987,,1.6487,,1679,1960,1.000,1,
+matterport3d_rgb.png,7,car,0.258626,184,267,229,290,mask,10.3870,,3.5828,6.8042,,1.8991,,672,771,1.000,1,

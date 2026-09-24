@@ -7,6 +7,10 @@
 
 ---
 
+> 📄 **Detailed Diagnostic Report:** See [PHASE2_FINDINGS.md](PHASE2_FINDINGS.md) for full failure mode breakdown, indoor reflection issues, and 360° ERP projection analysis.
+
+---
+
 ## Three Experiments
 
 | Exp | Question | Status |
@@ -23,7 +27,7 @@
 |---|---|---|---|---|---|
 | Fisheye outdoor | KITTI-360 | **0.281** | **0.085** | 1.000 | 2 |
 | Fisheye indoor | ScanNet++ | 0.558 | 0.252 | 0.333 | 3 |
-| 360° ERP | Matterport3D | (see output_matterport3d/) | — | — | — |
+| 360° ERP | Matterport3D | 3.951 | 1.907 | 0.000 | 2 |
 
 > Note: ScanNet++ has harder targets (bottles, TV) vs. KITTI-360 (cars).
 > A fair per-class comparison requires equal object-type distribution.

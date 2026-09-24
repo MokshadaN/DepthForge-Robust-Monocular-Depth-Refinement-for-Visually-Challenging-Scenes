@@ -1,0 +1,10 @@
+camera,phase,mae_m,rmse_m,abs_rel,delta_1,n_objects
+Fisheye Outdoor (KITTI-360),Phase 1 (BBox),0.2814,0.2881,0.0848,1.0000,2
+Fisheye Outdoor (KITTI-360),Phase 2 (Center 0.35),0.2814,0.2881,0.0848,1.0000,2
+Fisheye Outdoor (KITTI-360),Phase 3 (Seg Mask),0.2121,0.2308,0.0354,1.0000,4
+Fisheye Indoor (ScanNet++),Phase 1 (BBox),0.5582,0.5931,0.2524,0.3333,3
+Fisheye Indoor (ScanNet++),Phase 2 (Center 0.35),0.5582,0.5931,0.2524,0.3333,3
+Fisheye Indoor (ScanNet++),Phase 3 (Seg Mask),0.4815,0.4915,0.2161,0.6667,3
+360-ERP (Matterport3D),Phase 1 (BBox),3.9513,3.9679,1.9065,0.0000,2
+360-ERP (Matterport3D),Phase 2 (Center 0.35),3.9513,3.9679,1.9065,0.0000,2
+360-ERP (Matterport3D),Phase 3 (Cubemap+Seg),3.8585,3.8797,1.7390,0.0000,6

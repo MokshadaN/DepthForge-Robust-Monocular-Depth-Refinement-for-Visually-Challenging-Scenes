@@ -5,8 +5,14 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.utils.checkpoint as checkpoint
-from timm.models.layers import DropPath, to_2tuple, trunc_normal_
-from torchvision._internally_replaced_utils import load_state_dict_from_url
+try:
+    from timm.models.layers import DropPath, to_2tuple, trunc_normal_
+except ImportError:
+    from timm.layers import DropPath, to_2tuple, trunc_normal_
+try:
+    from torchvision._internally_replaced_utils import load_state_dict_from_url
+except ImportError:
+    from torch.hub import load_state_dict_from_url
 
 
 class Mlp(nn.Module):

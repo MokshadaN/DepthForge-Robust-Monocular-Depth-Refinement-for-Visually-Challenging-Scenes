@@ -1,0 +1,59 @@
+{
+  "UniDAC": {
+    "MAE": 0.2814,
+    "RMSE": 0.2881,
+    "AbsRel": 0.0848,
+    "SqRel": 0.0249,
+    "delta_1": 1.0,
+    "n": 2,
+    "stratified": {
+      "0-5 m": {
+        "MAE": 0.2814,
+        "RMSE": 0.2881,
+        "AbsRel": 0.0848,
+        "SqRel": 0.0249,
+        "delta_1": 1.0,
+        "n": 2
+      },
+      "5-20 m": {
+        "MAE": NaN,
+        "RMSE": NaN,
+        "AbsRel": NaN,
+        "delta_1": NaN,
+        "n": 0
+      },
+      "20+ m": {
+        "MAE": NaN,
+        "RMSE": NaN,
+        "AbsRel": NaN,
+        "delta_1": NaN,
+        "n": 0
+      }
+    },
+    "size_stratified": {
+      "small": {
+        "MAE": NaN,
+        "RMSE": NaN,
+        "AbsRel": NaN,
+        "delta_1": NaN,
+        "n": 0
+      },
+      "medium": {
+        "MAE": NaN,
+        "RMSE": NaN,
+        "AbsRel": NaN,
+        "delta_1": NaN,
+        "n": 0
+      },
+      "large": {
+        "MAE": 0.2814,
+        "RMSE": 0.2881,
+        "AbsRel": 0.0848,
+        "SqRel": 0.0249,
+        "delta_1": 1.0,
+        "n": 2
+      }
+    },
+    "scale_factor": "N/A (metric)"
+  }
+}

@@ -7,7 +7,6 @@ import sys
 import cv2
 import math
 import numpy as np
-from scipy.interpolate import griddata
 import torch
 import torch.nn.functional as F
 

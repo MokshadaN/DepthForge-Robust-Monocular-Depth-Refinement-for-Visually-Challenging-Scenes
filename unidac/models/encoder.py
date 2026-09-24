@@ -3,7 +3,10 @@ from enum import Enum
 from typing import Any, Union
 
 import torch
-from timm.models.vision_transformer import _cfg
+try:
+    from timm.models.vision_transformer import _cfg
+except ImportError:
+    from timm.models import default_cfg_for_features as _cfg
 from torch import nn
 
 from unidac.models.backbones import (Bottleneck, EfficientNet, ResNet,
