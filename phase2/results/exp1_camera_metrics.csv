@@ -1,0 +1,4 @@
+camera,MAE,RMSE,AbsRel,SqRel,delta_1,N,size_small_AbsRel,size_medium_AbsRel,size_large_AbsRel,dist_0_5_AbsRel,dist_5_20_AbsRel,dist_20p_AbsRel
+Fisheye-outdoor (KITTI-360),0.2814,0.2881,0.0848,0.0249,1.0,2,nan,nan,0.0848,0.0848,nan,nan
+Fisheye-indoor (ScanNet++),0.5582,0.5931,0.2524,0.1593,0.3333,3,0.3164,nan,0.1243,0.2524,nan,nan
+360-ERP (Matterport3D),3.9513,3.9679,1.9065,7.6359,0.0,2,nan,2.1893,1.6238,1.9065,nan,nan

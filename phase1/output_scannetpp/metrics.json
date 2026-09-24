@@ -1,0 +1,92 @@
+{
+  "overall": {
+    "MAE": 0.5582,
+    "RMSE": 0.5931,
+    "AbsRel": 0.2524,
+    "SqRel": 0.1593,
+    "delta_1": 0.3333,
+    "n": 3
+  },
+  "overall_scale_aligned": {},
+  "scale_factor": null,
+  "stratified": {
+    "0-5 m": {
+      "MAE": 0.5582,
+      "RMSE": 0.5931,
+      "AbsRel": 0.2524,
+      "SqRel": 0.1593,
+      "delta_1": 0.3333,
+      "n": 3
+    },
+    "5-20 m": {
+      "MAE": NaN,
+      "RMSE": NaN,
+      "AbsRel": NaN,
+      "delta_1": NaN,
+      "n": 0
+    },
+    "20+ m": {
+      "MAE": NaN,
+      "RMSE": NaN,
+      "AbsRel": NaN,
+      "delta_1": NaN,
+      "n": 0
+    }
+  },
+  "stratified_aligned": {},
+  "size_stratified": {
+    "small": {
+      "MAE": 0.6982,
+      "RMSE": 0.6992,
+      "AbsRel": 0.3164,
+      "SqRel": 0.2217,
+      "delta_1": 0.0,
+      "n": 2
+    },
+    "medium": {
+      "MAE": NaN,
+      "RMSE": NaN,
+      "AbsRel": NaN,
+      "delta_1": NaN,
+      "n": 0
+    },
+    "large": {
+      "MAE": 0.2781,
+      "RMSE": 0.2781,
+      "AbsRel": 0.1243,
+      "SqRel": 0.0346,
+      "delta_1": 1.0,
+      "n": 1
+    }
+  },
+  "per_class": {
+    "refrigerator": {
+      "MAE": 0.2781,
+      "RMSE": 0.2781,
+      "AbsRel": 0.1243,
+      "SqRel": 0.0346,
+      "delta_1": 1.0,
+      "n": 1
+    },
+    "bottle": {
+      "MAE": 0.5873,
+      "RMSE": 0.6086,
+      "AbsRel": 0.259,
+      "SqRel": 0.1654,
+      "delta_1": 0.3333,
+      "n": 3
+    },
+    "tv": {
+      "MAE": 0.4775,
+      "RMSE": 0.4775,
+      "AbsRel": 1.0542,
+      "SqRel": 0.5034,
+      "delta_1": 0.0,
+      "n": 1
+    }
+  },
+  "n_detections": 5,
+  "n_evaluated": 3,
+  "conf_threshold": 0.4,
+  "min_valid_ratio": 0.2
+}

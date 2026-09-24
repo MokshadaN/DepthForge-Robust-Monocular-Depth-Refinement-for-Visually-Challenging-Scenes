@@ -180,9 +180,9 @@ class DepthAnythingBackend(DepthBackend):
             result = self._pipe(img)
             depth = np.array(result["depth"], dtype=np.float32)
         else:
-            import torchvision.transforms.functional as TF
-            img_t = TF.normalize(
-                TF.to_tensor(np.array(img)),
+            import torchvision.transforms.functional as _TF_da
+            img_t = _TF_da.normalize(
+                _TF_da.to_tensor(np.array(img)),
                 mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225],
             ).unsqueeze(0).to(self.device)
             with torch.no_grad():
@@ -258,7 +258,7 @@ def eval_model_on_detections(
         if det.get("filtered", False):
             continue
         bbox = det["bbox"]
-        pd, _, _ = extract_depth_from_bbox(
+        pd, *_ = extract_depth_from_bbox(
             depth_pred_eval, bbox,
             mode=roi_mode, center_fraction=center_fraction,
             low_pct=low_pct, high_pct=high_pct,
@@ -303,12 +303,15 @@ def eval_model_on_detections(
 # ---------------------------------------------------------------------------
 
 def print_comparison_table(results: Dict[str, Dict]) -> None:
+    if not results:
+        print("\n[WARNING] No comparison results available.")
+        return
     sep  = "=" * 78
     sep2 = "-" * 78
     print(f"\n{sep}")
     print("  Model Comparison — Object-Level Depth Estimation")
     print(sep)
-    hdr = f"  {'Model':<20} {'Metric?':>7} {'MAE':>8} {'RMSE':>8} {'AbsRel':>8} {'δ<1.25':>8} {'N':>5}"
+    hdr = f"  {'Model':<20} {'Metric?':>7} {'MAE':>8} {'RMSE':>8} {'AbsRel':>8} {'d<1.25':>8} {'N':>5}"
     print(hdr); print(f"  {sep2}")
     ranked = sorted(results.items(), key=lambda kv: kv[1].get("AbsRel", float("inf")))
     for rank, (model_name, m) in enumerate(ranked, 1):
@@ -318,8 +321,8 @@ def print_comparison_table(results: Dict[str, Dict]) -> None:
         absr  = m.get("AbsRel",  float("nan"))
         d1    = m.get("delta_1", float("nan"))
         n     = m.get("n", 0)
-        medal = "🥇" if rank == 1 else ("🥈" if rank == 2 else ("🥉" if rank == 3 else "  "))
-        print(f"  {medal} {model_name:<18} {is_m:>7} {mae:>8.4f} {rmse:>8.4f} {absr:>8.4f} {d1:>8.4f} {n:>5}")
+        rank_tag = f"[#{rank}]"
+        print(f"  {rank_tag:<5} {model_name:<18} {is_m:>7} {mae:>8.4f} {rmse:>8.4f} {absr:>8.4f} {d1:>8.4f} {n:>5}")
     print(f"  {sep2}")
     best = ranked[0][0]
     print(f"\n  Best model by AbsRel: {best}")
@@ -563,12 +566,12 @@ def _print_verdict(model_metrics: Dict[str, Dict]) -> None:
 
     print()
     if unidac_rank == 1:
-        print("  ✅ UniDAC achieves the lowest AbsRel — it IS the best model here.")
+        print("  [BEST] UniDAC achieves the lowest AbsRel.")
     elif unidac_rank is not None:
         delta = model_metrics["UniDAC"].get("AbsRel", float("nan")) - best_absr
-        print(f"  ⚠️  UniDAC ranks #{unidac_rank}. Best is {best_name} "
-              f"(ΔAbsRel = +{delta:.4f}).")
-        print(f"  → Consider scale-alignment or a larger YOLO model to close the gap.")
+        print(f"  [RANK #{unidac_rank}] UniDAC ranks #{unidac_rank}. Best is {best_name} "
+              f"(dAbsRel = +{delta:.4f}).")
+        print(f"  -> Consider scale-alignment or a larger YOLO model to close the gap.")
     else:
         print(f"  UniDAC was not included in this run.")
     print("=" * 60 + "\n")

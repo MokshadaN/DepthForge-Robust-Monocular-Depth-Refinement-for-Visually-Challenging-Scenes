@@ -1,0 +1,6 @@
+image,object_id,class,confidence,x1,y1,x2,y2,roi_mode,estimated_depth_m,valid_depth_pixels,depth_std_m,surface_gradient,coverage_ratio,filtered,filter_reason
+scannetpp_rgb.jpg,0,refrigerator,0.704937,1138,75,1348,624,center,2.516149,14282,0.0386,0.0014,1.000,0,
+scannetpp_rgb.jpg,1,bottle,0.638419,999,63,1025,131,center,2.901722,240,0.0216,0.0046,1.000,0,
+scannetpp_rgb.jpg,2,bottle,0.553167,969,57,997,131,center,2.912679,260,0.0307,0.0061,1.000,0,
+scannetpp_rgb.jpg,3,bottle,0.377867,1068,71,1087,132,center,2.897436,161,0.0267,0.0065,1.000,1,low_conf
+scannetpp_rgb.jpg,4,tv,0.367272,1511,313,1703,629,center,0.930541,7616,0.0056,0.0005,1.000,1,low_conf

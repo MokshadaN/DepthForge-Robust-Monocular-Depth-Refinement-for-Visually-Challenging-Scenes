@@ -206,9 +206,10 @@ class UniDACDepthRunner:
         if is_erp:
             # Resize the ERP image to the model's expected forward size
             image_resized = cv2.resize(image, (fwd_w, fwd_h), interpolation=cv2.INTER_LINEAR)
-            image_tensor  = TF.normalize(
-                TF.to_tensor(image_resized), **norm
-            ).unsqueeze(0).to(self.device)
+            img_t = torch.from_numpy(image_resized).permute(2, 0, 1).float() / 255.0
+            mean_t = torch.tensor([0.485, 0.456, 0.406]).view(3, 1, 1)
+            std_t = torch.tensor([0.229, 0.224, 0.225]).view(3, 1, 1)
+            image_tensor = ((img_t - mean_t) / std_t).unsqueeze(0).to(self.device)
 
             # Uniform lat/long grids for a full equirectangular image
             lat_1d  = np.linspace(-np.pi / 2,  np.pi / 2, fwd_h, dtype=np.float32)
@@ -754,27 +755,33 @@ def run_pipeline(args: argparse.Namespace) -> None:
     # ---------------------------------------------------------------
     # Optional evaluation against ground-truth depth
     # ---------------------------------------------------------------
-    if args.gt_depth:
+    if args.gt_depth and not getattr(args, 'skip_eval', False):
         gt_path = Path(args.gt_depth).expanduser().resolve()
         print(f"\n[Eval] Comparing against GT depth: {gt_path.name}")
-        summary = evaluate(
-            detections=detections,
-            depth_pred=depth,
-            gt_depth_path=gt_path,
-            output_dir=output_dir,
-            depth_scale=args.depth_scale,
-            roi_mode=args.roi_mode,
-            center_fraction=args.center_fraction,
-            low_pct=args.low_pct,
-            high_pct=args.high_pct,
-            conf_threshold=conf_min,
-            min_valid_ratio=min_valid_ratio,
-            scale_align=args.scale_align,
-            image_name=image_path.name,
-        )
-        print_metrics(summary)
-        print(f"Eval CSV  : {output_dir / 'eval_results.csv'}")
-        print(f"Metrics   : {output_dir / 'metrics.json'}")
+        try:
+            summary = evaluate(
+                detections=detections,
+                depth_pred=depth,
+                gt_depth_path=gt_path,
+                output_dir=output_dir,
+                depth_scale=args.depth_scale,
+                roi_mode=args.roi_mode,
+                center_fraction=args.center_fraction,
+                low_pct=args.low_pct,
+                high_pct=args.high_pct,
+                conf_threshold=conf_min,
+                min_valid_ratio=min_valid_ratio,
+                scale_align=args.scale_align,
+                image_name=image_path.name,
+            )
+            print_metrics(summary)
+            print(f"Eval CSV  : {output_dir / 'eval_results.csv'}")
+            print(f"Metrics   : {output_dir / 'metrics.json'}")
+        except (IOError, OSError) as _eval_err:
+            print(f"[Eval] WARNING: Could not load GT depth — skipping evaluation.")
+            print(f"  Reason: {_eval_err}")
+    elif getattr(args, 'skip_eval', False):
+        print("\n[Eval] Skipped (--skip-eval).")
 
 
 def parse_args() -> argparse.Namespace:
@@ -877,6 +884,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--download-dinov3-backbone", action="store_true",
         help="Use the official config and download DINOv3 backbone separately.",
+    )
+    parser.add_argument(
+        "--skip-eval", action="store_true",
+        help="Skip GT depth evaluation (useful when GT file cannot be read, e.g. EXR without OpenEXR support).",
     )
     return parser.parse_args()
 

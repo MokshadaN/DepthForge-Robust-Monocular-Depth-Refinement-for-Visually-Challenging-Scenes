@@ -1,0 +1,6 @@
+image,object_id,class,confidence,x1,y1,x2,y2,roi_mode,pred_depth_m,pred_depth_aligned_m,gt_depth_m,abs_error_m,abs_error_aligned_m,rel_error,rel_error_aligned,pred_valid_px,gt_valid_px,coverage_ratio,filtered,filter_reason
+kitti360_rgb.png,0,car,0.888173,3,704,348,957,mask,3.7940,,3.5703,0.2237,,0.0627,,25082,3188,1.000,0,
+kitti360_rgb.png,1,car,0.883760,673,743,1138,934,mask,3.5670,,3.3945,0.1725,,0.0508,,36172,7633,1.000,0,
+kitti360_rgb.png,2,truck,0.515641,1163,574,1333,787,mask,18.8973,,19.2480,0.3508,,0.0182,,18448,2472,1.000,0,
+kitti360_rgb.png,3,car,0.386747,741,704,875,781,mask,10.2577,,10.1562,0.1015,,0.0100,,3162,342,1.000,0,
+kitti360_rgb.png,4,car,0.250313,745,703,887,759,mask,12.5674,,10.2109,2.3564,,0.2308,,2025,282,1.000,1,

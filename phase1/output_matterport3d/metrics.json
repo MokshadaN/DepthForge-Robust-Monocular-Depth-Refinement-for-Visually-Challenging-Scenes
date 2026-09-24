@@ -1,0 +1,76 @@
+{
+  "overall": {
+    "MAE": 3.9513,
+    "RMSE": 3.9679,
+    "AbsRel": 1.9065,
+    "SqRel": 7.6359,
+    "delta_1": 0.0,
+    "n": 2
+  },
+  "overall_scale_aligned": {},
+  "scale_factor": null,
+  "stratified": {
+    "0-5 m": {
+      "MAE": 3.9513,
+      "RMSE": 3.9679,
+      "AbsRel": 1.9065,
+      "SqRel": 7.6359,
+      "delta_1": 0.0,
+      "n": 2
+    },
+    "5-20 m": {
+      "MAE": NaN,
+      "RMSE": NaN,
+      "AbsRel": NaN,
+      "delta_1": NaN,
+      "n": 0
+    },
+    "20+ m": {
+      "MAE": NaN,
+      "RMSE": NaN,
+      "AbsRel": NaN,
+      "delta_1": NaN,
+      "n": 0
+    }
+  },
+  "stratified_aligned": {},
+  "size_stratified": {
+    "small": {
+      "MAE": NaN,
+      "RMSE": NaN,
+      "AbsRel": NaN,
+      "delta_1": NaN,
+      "n": 0
+    },
+    "medium": {
+      "MAE": 4.3144,
+      "RMSE": 4.3144,
+      "AbsRel": 2.1893,
+      "SqRel": 9.4455,
+      "delta_1": 0.0,
+      "n": 1
+    },
+    "large": {
+      "MAE": 3.5881,
+      "RMSE": 3.5881,
+      "AbsRel": 1.6238,
+      "SqRel": 5.8263,
+      "delta_1": 0.0,
+      "n": 1
+    }
+  },
+  "per_class": {
+    "train": {
+      "MAE": 3.9513,
+      "RMSE": 3.9679,
+      "AbsRel": 1.9065,
+      "SqRel": 7.6359,
+      "delta_1": 0.0,
+      "n": 2
+    }
+  },
+  "n_detections": 2,
+  "n_evaluated": 2,
+  "conf_threshold": 0.4,
+  "min_valid_ratio": 0.2
+}

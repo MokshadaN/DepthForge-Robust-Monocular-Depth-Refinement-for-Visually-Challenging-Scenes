@@ -1,0 +1,4 @@
+image,object_id,class,confidence,x1,y1,x2,y2,roi_mode,estimated_depth_m,valid_depth_pixels,depth_std_m,surface_gradient,coverage_ratio,filtered,filter_reason
+kitti360_rgb.png,0,car,0.835467,665,742,1143,931,center,3.481129,11256,0.2014,0.0137,1.000,0,
+kitti360_rgb.png,1,car,0.820776,3,701,350,965,center,3.698851,11562,0.2528,0.0148,1.000,0,
+kitti360_rgb.png,2,car,0.268982,743,703,875,762,center,10.437205,1008,0.8377,0.2109,1.000,1,low_conf

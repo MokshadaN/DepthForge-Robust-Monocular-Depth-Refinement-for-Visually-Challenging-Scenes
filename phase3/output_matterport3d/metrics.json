@@ -1,0 +1,108 @@
+{
+  "overall": {
+    "MAE": 3.8585,
+    "RMSE": 3.8797,
+    "AbsRel": 1.739,
+    "SqRel": 6.6302,
+    "delta_1": 0.0,
+    "n": 6
+  },
+  "overall_scale_aligned": {},
+  "scale_factor": null,
+  "stratified": {
+    "0-5 m": {
+      "MAE": 3.8585,
+      "RMSE": 3.8797,
+      "AbsRel": 1.739,
+      "SqRel": 6.6302,
+      "delta_1": 0.0,
+      "n": 6
+    },
+    "5-20 m": {
+      "MAE": NaN,
+      "RMSE": NaN,
+      "AbsRel": NaN,
+      "delta_1": NaN,
+      "n": 0
+    },
+    "20+ m": {
+      "MAE": NaN,
+      "RMSE": NaN,
+      "AbsRel": NaN,
+      "delta_1": NaN,
+      "n": 0
+    }
+  },
+  "stratified_aligned": {},
+  "size_stratified": {
+    "small": {
+      "MAE": 4.0898,
+      "RMSE": 4.1086,
+      "AbsRel": 1.4814,
+      "SqRel": 6.0291,
+      "delta_1": 0.0,
+      "n": 3
+    },
+    "medium": {
+      "MAE": 3.6272,
+      "RMSE": 3.6365,
+      "AbsRel": 1.9967,
+      "SqRel": 7.2313,
+      "delta_1": 0.0,
+      "n": 3
+    },
+    "large": {
+      "MAE": NaN,
+      "RMSE": NaN,
+      "AbsRel": NaN,
+      "delta_1": NaN,
+      "n": 0
+    }
+  },
+  "per_class": {
+    "bed": {
+      "MAE": 3.7182,
+      "RMSE": 3.7285,
+      "AbsRel": 1.9795,
+      "SqRel": 7.3487,
+      "delta_1": 0.0,
+      "n": 2
+    },
+    "couch": {
+      "MAE": 3.9287,
+      "RMSE": 3.9584,
+      "AbsRel": 1.9429,
+      "SqRel": 7.5904,
+      "delta_1": 0.0,
+      "n": 2
+    },
+    "chair": {
+      "MAE": 4.3196,
+      "RMSE": 4.3196,
+      "AbsRel": 0.9505,
+      "SqRel": 4.1058,
+      "delta_1": 0.0,
+      "n": 1
+    },
+    "person": {
+      "MAE": 3.668,
+      "RMSE": 3.6704,
+      "AbsRel": 1.6438,
+      "SqRel": 6.0301,
+      "delta_1": 0.0,
+      "n": 2
+    },
+    "car": {
+      "MAE": 6.8042,
+      "RMSE": 6.8042,
+      "AbsRel": 1.8991,
+      "SqRel": 12.9219,
+      "delta_1": 0.0,
+      "n": 1
+    }
+  },
+  "n_detections": 8,
+  "n_evaluated": 6,
+  "conf_threshold": 0.4,
+  "min_valid_ratio": 0.2
+}

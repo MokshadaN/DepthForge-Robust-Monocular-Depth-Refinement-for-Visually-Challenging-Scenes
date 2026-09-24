@@ -1,0 +1,75 @@
+{
+  "overall": {
+    "MAE": 0.2814,
+    "RMSE": 0.2881,
+    "AbsRel": 0.0848,
+    "SqRel": 0.0249,
+    "delta_1": 1.0,
+    "n": 2
+  },
+  "overall_scale_aligned": {},
+  "scale_factor": null,
+  "stratified": {
+    "0-5 m": {
+      "MAE": 0.2814,
+      "RMSE": 0.2881,
+      "AbsRel": 0.0848,
+      "SqRel": 0.0249,
+      "delta_1": 1.0,
+      "n": 2
+    },
+    "5-20 m": {
+      "MAE": NaN,
+      "RMSE": NaN,
+      "AbsRel": NaN,
+      "delta_1": NaN,
+      "n": 0
+    },
+    "20+ m": {
+      "MAE": NaN,
+      "RMSE": NaN,
+      "AbsRel": NaN,
+      "delta_1": NaN,
+      "n": 0
+    }
+  },
+  "stratified_aligned": {},
+  "size_stratified": {
+    "small": {
+      "MAE": NaN,
+      "RMSE": NaN,
+      "AbsRel": NaN,
+      "delta_1": NaN,
+      "n": 0
+    },
+    "medium": {
+      "MAE": NaN,
+      "RMSE": NaN,
+      "AbsRel": NaN,
+      "delta_1": NaN,
+      "n": 0
+    },
+    "large": {
+      "MAE": 0.2814,
+      "RMSE": 0.2881,
+      "AbsRel": 0.0848,
+      "SqRel": 0.0249,
+      "delta_1": 1.0,
+      "n": 2
+    }
+  },
+  "per_class": {
+    "car": {
+      "MAE": 0.8151,
+      "RMSE": 1.112,
+      "AbsRel": 0.1299,
+      "SqRel": 0.1547,
+      "delta_1": 1.0,
+      "n": 3
+    }
+  },
+  "n_detections": 3,
+  "n_evaluated": 2,
+  "conf_threshold": 0.4,
+  "min_valid_ratio": 0.2
+}

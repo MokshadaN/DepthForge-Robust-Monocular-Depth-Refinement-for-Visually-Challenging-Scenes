@@ -1,0 +1,4 @@
+image,object_id,class,confidence,x1,y1,x2,y2,roi_mode,pred_depth_m,pred_depth_aligned_m,gt_depth_m,abs_error_m,abs_error_aligned_m,rel_error,rel_error_aligned,pred_valid_px,gt_valid_px,coverage_ratio,filtered,filter_reason
+kitti360_rgb.png,0,car,0.835467,665,742,1143,931,center,3.4811,,3.2617,0.2194,,0.0673,,11256,1290,1.000,0,
+kitti360_rgb.png,1,car,0.820776,3,701,350,965,center,3.6989,,3.3555,0.3434,,0.1023,,11562,737,1.000,0,
+kitti360_rgb.png,2,car,0.268982,743,703,875,762,center,10.4372,,8.5547,1.8825,,0.2201,,1008,21,1.000,1,low_conf

@@ -1,0 +1,3 @@
+image,object_id,class,confidence,x1,y1,x2,y2,roi_mode,pred_depth_m,pred_depth_aligned_m,gt_depth_m,abs_error_m,abs_error_aligned_m,rel_error,rel_error_aligned,pred_valid_px,gt_valid_px,coverage_ratio,filtered,filter_reason
+matterport3d_rgb.png,0,train,0.546486,616,166,949,351,center,5.7979,,2.2098,3.5881,,1.6238,,7605,6083,1.000,0,
+matterport3d_rgb.png,1,train,0.534978,0,129,152,421,center,6.2851,,1.9707,4.3144,,2.1893,,5616,4492,1.000,0,

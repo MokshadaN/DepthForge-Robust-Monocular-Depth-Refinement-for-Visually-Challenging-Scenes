@@ -71,7 +71,7 @@ def print_table(rows: list[dict]) -> None:
     print(f"\n{sep}")
     print("  Experiment 1 — Cross-Camera Robustness (Table 1)")
     print(sep)
-    print(f"  {'Camera':<35} {'MAE':>7} {'RMSE':>7} {'AbsRel':>8} {'δ<1.25':>8} {'N':>5}")
+    print(f"  {'Camera':<35} {'MAE':>7} {'RMSE':>7} {'AbsRel':>8} {'d<1.25':>8} {'N':>5}")
     print(f"  {'-'*85}")
     for r in rows:
         mae  = f"{float(r['MAE']):.4f}"   if r['MAE']   != "" else "  N/A  "
@@ -110,9 +110,9 @@ def main() -> None:
             m = load_metrics(d)
             row = flatten_metrics(label, m)
             rows.append(row)
-            print(f"  ✓ {label:40s} AbsRel={row['AbsRel']}")
+            print(f"  [OK] {label:40s} AbsRel={row['AbsRel']}")
         except FileNotFoundError as e:
-            print(f"  ✗ {label:40s} {e}")
+            print(f"  [MISSING] {label:40s} {e}")
             rows.append({"camera": label, **{k: "" for k in [
                 "MAE","RMSE","AbsRel","SqRel","delta_1","N",
                 "size_small_AbsRel","size_medium_AbsRel","size_large_AbsRel",
