@@ -486,20 +486,22 @@ print(f'Train={len(train_data)} | Val={len(val_data)} | Test={len(test_data)}')
 #  D_refined = clamp(D_base + 0.3·tanh(Δ), 0, 1)
 # ===========================================================================
 class DilatedBranch(nn.Module):
-    def __init__(self, in_ch, out_ch, d):
+    def __init__(self, in_ch, out_ch, d, dropout=0.1):
         super().__init__()
         self.net = nn.Sequential(
             nn.Conv2d(in_ch, out_ch, 3, padding=d, dilation=d),
-            nn.BatchNorm2d(out_ch), nn.ReLU(inplace=True))
+            nn.BatchNorm2d(out_ch), nn.ReLU(inplace=True),
+            nn.Dropout2d(dropout))          # ← spatial dropout
     def forward(self, x): return self.net(x)
 
 
 class DomainHead(nn.Module):
-    """Per-domain expert refinement head."""
-    def __init__(self, in_ch=96):
+    """Per-domain expert refinement head with dropout for regularization."""
+    def __init__(self, in_ch=96, dropout=0.15):
         super().__init__()
         self.net = nn.Sequential(
             nn.Conv2d(in_ch, 48, 3, padding=1), nn.BatchNorm2d(48), nn.ReLU(inplace=True),
+            nn.Dropout2d(dropout),
             nn.Conv2d(48, 32, 3, padding=1),    nn.ReLU(inplace=True),
             nn.Conv2d(32, 1, 1))
     def forward(self, x): return self.net(x)
@@ -508,29 +510,31 @@ class DomainHead(nn.Module):
 class MultiHeadDilatedAdapter(nn.Module):
     """
     Phase 9: Multi-Head Dilated Residual Adapter.
-    ~200K parameters.
+    ~200K parameters. With dropout regularization.
     At inference: domain auto-inferred via soft classifier — no label needed.
     """
-    def __init__(self, in_ch=5, hidden=64):
+    def __init__(self, in_ch=5, hidden=64, dropout=0.1):
         super().__init__()
         self.stem = nn.Sequential(
             nn.Conv2d(in_ch, hidden, 3, padding=1),
-            nn.BatchNorm2d(hidden), nn.ReLU(inplace=True))
-        self.b1 = DilatedBranch(hidden, hidden // 2, 1)
-        self.b2 = DilatedBranch(hidden, hidden // 2, 2)
-        self.b4 = DilatedBranch(hidden, hidden // 2, 4)
+            nn.BatchNorm2d(hidden), nn.ReLU(inplace=True),
+            nn.Dropout2d(dropout))
+        self.b1 = DilatedBranch(hidden, hidden // 2, 1, dropout)
+        self.b2 = DilatedBranch(hidden, hidden // 2, 2, dropout)
+        self.b4 = DilatedBranch(hidden, hidden // 2, 4, dropout)
         trunk_ch = (hidden // 2) * 3   # 96
 
         # Lightweight domain classifier
         self.clf = nn.Sequential(
             nn.AdaptiveAvgPool2d(1), nn.Flatten(),
+            nn.Dropout(dropout * 2),
             nn.Linear(trunk_ch, 32), nn.ReLU(inplace=True),
             nn.Linear(32, 3))
 
         # 3 domain expert heads
-        self.head_camo  = DomainHead(trunk_ch)
-        self.head_glass = DomainHead(trunk_ch)
-        self.head_tex   = DomainHead(trunk_ch)
+        self.head_camo  = DomainHead(trunk_ch, dropout)
+        self.head_glass = DomainHead(trunk_ch, dropout)
+        self.head_tex   = DomainHead(trunk_ch, dropout)
         self.scale = 0.30
 
     def forward(self, base_d, rgb, energy):
@@ -623,32 +627,78 @@ print('Metrics: AbsRel, SqRel, RMSE, SILog, δ1/δ2/δ3  ✓')
 
 # ===========================================================================
 # CELL 9 — Training Loop (60 epochs, AdamW, Cosine LR)
+#   Improvements v2:
+#     • Mini-batch training (BS=8) — 6-8x faster than sample-by-sample
+#     • Higher weight_decay (5e-4) — stronger L2 regularization
+#     • Augmentation: random hflip + depth/brightness jitter
+#     • Val metric = SILog-only (not affected by domain CE imbalance)
+#     • Early stopping with patience=12
 # ===========================================================================
+import math
+
 NUM_EPOCHS = 60
+BATCH_SIZE = 8
+PATIENCE   = 12      # early stopping patience
 BEST_CKPT  = CKPT_DIR / 'phase9_multihead_best.pt'
 LAST_CKPT  = CKPT_DIR / 'phase9_multihead_last.pt'
 
-optimizer  = torch.optim.AdamW(adapter.parameters(), lr=1.5e-3, weight_decay=1e-4)
+# Higher weight_decay for stronger regularization
+optimizer  = torch.optim.AdamW(adapter.parameters(), lr=1.5e-3, weight_decay=5e-4)
 scheduler  = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=NUM_EPOCHS, eta_min=5e-6)
 
-train_hist, val_hist, absrel_hist = [], [], []
-best_val = float('inf')
+# ── Augmentation helpers ──────────────────────────────────────────────────
+def augment_sample(s):
+    """Apply random horizontal flip and depth scale jitter."""
+    rgb   = s['rgb'].clone()
+    bd    = s['base_d'].clone()
+    tch   = s['teacher'].clone()
+    en    = s['energy'].clone()
+    dl    = s['domain']
+    # Random horizontal flip
+    if random.random() < 0.5:
+        rgb = torch.flip(rgb, [-1])
+        bd  = torch.flip(bd,  [-1])
+        tch = torch.flip(tch, [-1])
+        en  = torch.flip(en,  [-1])
+    # Depth scale jitter ±10% (prevents scale memorization)
+    scale = random.uniform(0.90, 1.10)
+    bd  = torch.clamp(bd  * scale, 0., 1.)
+    tch = torch.clamp(tch * scale, 0., 1.)
+    return rgb, bd, tch, en, dl
+
+
+def collate_batch(samples):
+    """Collate a list of samples into batched tensors with augmentation."""
+    rgbs, bds, tchs, ens, dls = [], [], [], [], []
+    for s in samples:
+        rgb, bd, tch, en, dl = augment_sample(s)
+        rgbs.append(rgb); bds.append(bd); tchs.append(tch)
+        ens.append(en);   dls.append(dl)
+    return (torch.stack(rgbs).to(DEVICE),
+            torch.stack(bds).to(DEVICE),
+            torch.stack(tchs).to(DEVICE),
+            torch.stack(ens).to(DEVICE),
+            torch.tensor(dls, dtype=torch.long).to(DEVICE))
+
+
+train_hist, val_hist, absrel_hist, silog_hist = [], [], [], []
+best_val     = float('inf')
+no_improve   = 0
 
 print('=' * 72)
-print('  PHASE 9: MULTI-HEAD ADAPTER FINE-TUNING')
+print('  PHASE 9 v2: MULTI-HEAD ADAPTER — REGULARIZED TRAINING')
 print(f'  Train={len(train_data)} | Val={len(val_data)} | Test={len(test_data)}')
+print(f'  BatchSize={BATCH_SIZE} | WeightDecay=5e-4 | Patience={PATIENCE}')
 print('=' * 72)
 
 for ep in range(1, NUM_EPOCHS + 1):
+    # ── Train ─────────────────────────────────────────────────────────────
     adapter.train()
     tl = 0.
     random.shuffle(train_data)
-    for s in train_data:
-        rgb = s['rgb'].unsqueeze(0).to(DEVICE)
-        bd  = s['base_d'].unsqueeze(0).to(DEVICE)
-        tch = s['teacher'].unsqueeze(0).to(DEVICE)
-        en  = s['energy'].unsqueeze(0).to(DEVICE)
-        dl  = torch.tensor([s['domain']], dtype=torch.long).to(DEVICE)
+    batches = [train_data[i:i+BATCH_SIZE] for i in range(0, len(train_data), BATCH_SIZE)]
+    for batch in batches:
+        rgb, bd, tch, en, dl = collate_batch(batch)
         optimizer.zero_grad()
         ref, logits = adapter(bd, rgb, en)
         loss = total_loss(ref, tch, logits, dl)
@@ -657,50 +707,90 @@ for ep in range(1, NUM_EPOCHS + 1):
         optimizer.step()
         tl += loss.item()
     scheduler.step()
-    avg_tl = tl / len(train_data); train_hist.append(avg_tl)
+    avg_tl = tl / len(batches)
+    train_hist.append(avg_tl)
 
+    # ── Validate (SILog-only for stable tracking) ──────────────────────────
     adapter.eval()
-    vl = 0.; va = 0.
+    vl = 0.; va = 0.; vs = 0.
     with torch.no_grad():
-        for s in val_data:
-            rgb = s['rgb'].unsqueeze(0).to(DEVICE)
-            bd  = s['base_d'].unsqueeze(0).to(DEVICE)
-            tch = s['teacher'].unsqueeze(0).to(DEVICE)
-            en  = s['energy'].unsqueeze(0).to(DEVICE)
-            dl  = torch.tensor([s['domain']], dtype=torch.long).to(DEVICE)
+        val_batches = [val_data[i:i+BATCH_SIZE] for i in range(0, len(val_data), BATCH_SIZE)]
+        for batch in val_batches:
+            rgb = torch.stack([s['rgb'] for s in batch]).to(DEVICE)
+            bd  = torch.stack([s['base_d'] for s in batch]).to(DEVICE)
+            tch = torch.stack([s['teacher'] for s in batch]).to(DEVICE)
+            en  = torch.stack([s['energy'] for s in batch]).to(DEVICE)
+            dl  = torch.tensor([s['domain'] for s in batch], dtype=torch.long).to(DEVICE)
             ref, logits = adapter(bd, rgb, en)
-            vl += total_loss(ref, tch, logits, dl).item()
-            m   = compute_metrics(ref.squeeze().cpu().numpy(),
-                                  tch.squeeze().cpu().numpy())
-            if m: va += m['AbsRel']
-    avg_vl = vl / len(val_data); avg_va = va / len(val_data)
-    val_hist.append(avg_vl); absrel_hist.append(avg_va)
+            # Val loss = SILog only (no DomainCE, prevents label-imbalance inflation)
+            vl += silog_loss(ref, tch).item()
+            for i in range(len(batch)):
+                m = compute_metrics(ref[i].squeeze().cpu().numpy(),
+                                    tch[i].squeeze().cpu().numpy())
+                if m:
+                    va += m['AbsRel']
+                    vs += m['SILog']
+    n_val_batches = len(val_batches)
+    n_val = len(val_data)
+    avg_vl = vl / n_val_batches
+    avg_va = va / n_val
+    avg_vs = vs / n_val
+    val_hist.append(avg_vl)
+    absrel_hist.append(avg_va)
+    silog_hist.append(avg_vs)
 
+    # ── Checkpoint & Early Stopping ────────────────────────────────────────
     if avg_vl < best_val:
-        best_val = avg_vl
+        best_val   = avg_vl
+        no_improve = 0
         torch.save(adapter.state_dict(), str(BEST_CKPT))
+    else:
+        no_improve += 1
 
     if ep % 5 == 0 or ep == 1:
-        print(f'  [{ep:03d}/{NUM_EPOCHS}] Train={avg_tl:.5f}  Val={avg_vl:.5f}  '
-              f'AbsRel={avg_va:.4f}  LR={scheduler.get_last_lr()[0]:.2e}')
+        print(f'  [{ep:03d}/{NUM_EPOCHS}] Train={avg_tl:.5f}  ValSILog={avg_vl:.5f}  '
+              f'AbsRel={avg_va:.4f}  SILog={avg_vs:.4f}  LR={scheduler.get_last_lr()[0]:.2e}  '
+              f'NoImprove={no_improve}/{PATIENCE}')
+
+    if no_improve >= PATIENCE:
+        print(f'\n⚠️  Early stopping at epoch {ep} (no improvement for {PATIENCE} epochs)')
+        break
 
 torch.save(adapter.state_dict(), str(LAST_CKPT))
-print(f'\nDone. Best checkpoint → {BEST_CKPT}')
+print(f'\nDone. Best Val SILog={best_val:.5f} → {BEST_CKPT}')
 
 
 # ===========================================================================
-# CELL 10 — Training Curves
+# CELL 10 — Training Curves (enhanced: 3 subplots)
 # ===========================================================================
-ep_ax = np.arange(1, NUM_EPOCHS + 1)
-fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 5))
-fig.suptitle('Phase 9 Multi-Head Adapter — Training Dynamics', fontsize=14, fontweight='bold')
+actual_epochs = len(train_hist)
+ep_ax = np.arange(1, actual_epochs + 1)
 
+fig, axes = plt.subplots(1, 3, figsize=(18, 5))
+fig.suptitle('Phase 9 Multi-Head Adapter v2 — Training Dynamics', fontsize=14, fontweight='bold')
+
+# Plot 1: Train vs Val SILog loss
+ax1 = axes[0]
 ax1.plot(ep_ax, train_hist, '#e74c3c', lw=2.5, label='Train Loss')
-ax1.plot(ep_ax, val_hist,   '#2980b9', lw=2.5, ls='--', label='Val Loss')
-ax1.set_title('Loss (SILog + Grad + CE)'); ax1.legend(); ax1.grid(alpha=.3)
+ax1.plot(ep_ax, val_hist,   '#2980b9', lw=2.5, ls='--', label='Val SILog Loss')
+best_ep = int(np.argmin(val_hist)) + 1
+ax1.axvline(best_ep, color='gray', ls=':', lw=1.5, label=f'Best @ ep {best_ep}')
+ax1.set_xlabel('Epoch'); ax1.set_title('SILog Loss (Train vs Val)')
+ax1.legend(); ax1.grid(alpha=.3)
 
+# Plot 2: AbsRel
+ax2 = axes[1]
 ax2.plot(ep_ax, absrel_hist, '#27ae60', lw=2.5, label='Val AbsRel ↓')
-ax2.set_title('Validation AbsRel (↓ better)'); ax2.legend(); ax2.grid(alpha=.3)
+ax2.axvline(best_ep, color='gray', ls=':', lw=1.5)
+ax2.set_xlabel('Epoch'); ax2.set_title('Validation AbsRel (↓ better)')
+ax2.legend(); ax2.grid(alpha=.3)
+
+# Plot 3: SILog metric (eval)
+ax3 = axes[2]
+ax3.plot(ep_ax, silog_hist, '#8e44ad', lw=2.5, label='Val SILog Metric ↓')
+ax3.axvline(best_ep, color='gray', ls=':', lw=1.5)
+ax3.set_xlabel('Epoch'); ax3.set_title('Validation SILog Metric (↓ better)')
+ax3.legend(); ax3.grid(alpha=.3)
 
 plt.tight_layout()
 out_p = RESULTS / 'phase9_training_curves.png'
