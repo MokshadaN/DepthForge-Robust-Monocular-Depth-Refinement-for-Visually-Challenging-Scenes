@@ -1,0 +1,3163 @@
+{
+  "total": 522,
+  "unique_scenes": 511,
+  "leakage_protection": "Strict scene-level grouping \u2014 all variants of a scene share a partition.",
+  "teacher_model": "MiDaS DPT_Large (cross-model pseudo-GT, not UniDAC self-distillation)",
+  "target_size": [
+    480,
+    640
+  ],
+  "domain_counts": {
+    "camo": 500,
+    "textureless": 12,
+    "transparent": 10
+  },
+  "domain_percent": {
+    "camo": "95.8%",
+    "textureless": "2.3%",
+    "transparent": "1.9%"
+  },
+  "split_counts": {
+    "train": 363,
+    "val": 79,
+    "test": 80
+  },
+  "train": [
+    {
+      "name": "camo_0247",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0247.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0247.npy"
+    },
+    {
+      "name": "camo_0213",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0213.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0213.npy"
+    },
+    {
+      "name": "camo_0342",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0342.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0342.npy"
+    },
+    {
+      "name": "camo_0127",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0127.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0127.npy"
+    },
+    {
+      "name": "camo_0307",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0307.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0307.npy"
+    },
+    {
+      "name": "camo_0092",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0092.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0092.npy"
+    },
+    {
+      "name": "camo_0464",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0464.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0464.npy"
+    },
+    {
+      "name": "camo_0182",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0182.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0182.npy"
+    },
+    {
+      "name": "camo_0199",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0199.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0199.npy"
+    },
+    {
+      "name": "camo_0238",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0238.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0238.npy"
+    },
+    {
+      "name": "camo_0384",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0384.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0384.npy"
+    },
+    {
+      "name": "camo_0473",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0473.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0473.npy"
+    },
+    {
+      "name": "camo_0093",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0093.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0093.npy"
+    },
+    {
+      "name": "camo_0146",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0146.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0146.npy"
+    },
+    {
+      "name": "camo_0398",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0398.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0398.npy"
+    },
+    {
+      "name": "camo_0031",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0031.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0031.npy"
+    },
+    {
+      "name": "camo_0008",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0008.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0008.npy"
+    },
+    {
+      "name": "camo_0120",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0120.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0120.npy"
+    },
+    {
+      "name": "camo_0402",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0402.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0402.npy"
+    },
+    {
+      "name": "camo_0163",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0163.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0163.npy"
+    },
+    {
+      "name": "camo_0371",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0371.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0371.npy"
+    },
+    {
+      "name": "camo_0488",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0488.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0488.npy"
+    },
+    {
+      "name": "camo_0394",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0394.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0394.npy"
+    },
+    {
+      "name": "camo_0045",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0045.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0045.npy"
+    },
+    {
+      "name": "camo_0226",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0226.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0226.npy"
+    },
+    {
+      "name": "camo_0196",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0196.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0196.npy"
+    },
+    {
+      "name": "camo_0037",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0037.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0037.npy"
+    },
+    {
+      "name": "camo_0211",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0211.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0211.npy"
+    },
+    {
+      "name": "camo_0007",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0007.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0007.npy"
+    },
+    {
+      "name": "camo_0403",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0403.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0403.npy"
+    },
+    {
+      "name": "textureless_texless_03_kitchen_view1_wide",
+      "domain": "textureless",
+      "rgb": "phase8\\data\\rgb\\textureless_texless_03_kitchen_view1_wide.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\textureless_texless_03_kitchen_view1_wide.npy"
+    },
+    {
+      "name": "textureless_texless_03_kitchen_view2_detail",
+      "domain": "textureless",
+      "rgb": "phase8\\data\\rgb\\textureless_texless_03_kitchen_view2_detail.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\textureless_texless_03_kitchen_view2_detail.npy"
+    },
+    {
+      "name": "camo_0160",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0160.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0160.npy"
+    },
+    {
+      "name": "camo_0254",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0254.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0254.npy"
+    },
+    {
+      "name": "camo_0426",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0426.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0426.npy"
+    },
+    {
+      "name": "camo_0154",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0154.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0154.npy"
+    },
+    {
+      "name": "camo_0361",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0361.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0361.npy"
+    },
+    {
+      "name": "camo_0496",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0496.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0496.npy"
+    },
+    {
+      "name": "camo_0041",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0041.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0041.npy"
+    },
+    {
+      "name": "camo_0021",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0021.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0021.npy"
+    },
+    {
+      "name": "camo_0336",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0336.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0336.npy"
+    },
+    {
+      "name": "camo_0074",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0074.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0074.npy"
+    },
+    {
+      "name": "camo_0068",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0068.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0068.npy"
+    },
+    {
+      "name": "camo_0132",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0132.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0132.npy"
+    },
+    {
+      "name": "camo_0158",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0158.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0158.npy"
+    },
+    {
+      "name": "camo_0053",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0053.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0053.npy"
+    },
+    {
+      "name": "camo_0175",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0175.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0175.npy"
+    },
+    {
+      "name": "camo_0383",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0383.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0383.npy"
+    },
+    {
+      "name": "camo_0201",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0201.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0201.npy"
+    },
+    {
+      "name": "camo_0237",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0237.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0237.npy"
+    },
+    {
+      "name": "camo_0333",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0333.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0333.npy"
+    },
+    {
+      "name": "camo_0265",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0265.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0265.npy"
+    },
+    {
+      "name": "camo_0448",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0448.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0448.npy"
+    },
+    {
+      "name": "camo_0266",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0266.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0266.npy"
+    },
+    {
+      "name": "camo_0418",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0418.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0418.npy"
+    },
+    {
+      "name": "camo_0436",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0436.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0436.npy"
+    },
+    {
+      "name": "camo_0156",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0156.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0156.npy"
+    },
+    {
+      "name": "camo_0450",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0450.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0450.npy"
+    },
+    {
+      "name": "camo_0218",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0218.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0218.npy"
+    },
+    {
+      "name": "camo_0151",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0151.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0151.npy"
+    },
+    {
+      "name": "camo_0050",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0050.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0050.npy"
+    },
+    {
+      "name": "camo_0059",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0059.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0059.npy"
+    },
+    {
+      "name": "camo_0323",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0323.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0323.npy"
+    },
+    {
+      "name": "camo_0212",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0212.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0212.npy"
+    },
+    {
+      "name": "camo_0188",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0188.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0188.npy"
+    },
+    {
+      "name": "camo_0396",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0396.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0396.npy"
+    },
+    {
+      "name": "camo_0319",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0319.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0319.npy"
+    },
+    {
+      "name": "camo_0310",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0310.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0310.npy"
+    },
+    {
+      "name": "camo_0230",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0230.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0230.npy"
+    },
+    {
+      "name": "camo_0286",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0286.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0286.npy"
+    },
+    {
+      "name": "camo_0004",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0004.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0004.npy"
+    },
+    {
+      "name": "camo_0419",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0419.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0419.npy"
+    },
+    {
+      "name": "camo_0280",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0280.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0280.npy"
+    },
+    {
+      "name": "camo_0312",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0312.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0312.npy"
+    },
+    {
+      "name": "camo_0451",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0451.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0451.npy"
+    },
+    {
+      "name": "camo_0139",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0139.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0139.npy"
+    },
+    {
+      "name": "camo_0225",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0225.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0225.npy"
+    },
+    {
+      "name": "camo_0096",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0096.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0096.npy"
+    },
+    {
+      "name": "camo_0249",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0249.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0249.npy"
+    },
+    {
+      "name": "camo_0296",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0296.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0296.npy"
+    },
+    {
+      "name": "camo_0453",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0453.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0453.npy"
+    },
+    {
+      "name": "camo_0432",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0432.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0432.npy"
+    },
+    {
+      "name": "camo_0088",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0088.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0088.npy"
+    },
+    {
+      "name": "camo_0269",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0269.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0269.npy"
+    },
+    {
+      "name": "camo_0499",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0499.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0499.npy"
+    },
+    {
+      "name": "camo_0200",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0200.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0200.npy"
+    },
+    {
+      "name": "camo_0416",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0416.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0416.npy"
+    },
+    {
+      "name": "camo_0228",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0228.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0228.npy"
+    },
+    {
+      "name": "camo_0340",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0340.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0340.npy"
+    },
+    {
+      "name": "camo_0405",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0405.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0405.npy"
+    },
+    {
+      "name": "camo_0011",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0011.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0011.npy"
+    },
+    {
+      "name": "camo_0006",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0006.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0006.npy"
+    },
+    {
+      "name": "camo_0480",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0480.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0480.npy"
+    },
+    {
+      "name": "camo_0171",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0171.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0171.npy"
+    },
+    {
+      "name": "camo_0369",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0369.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0369.npy"
+    },
+    {
+      "name": "camo_0262",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0262.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0262.npy"
+    },
+    {
+      "name": "camo_0355",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0355.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0355.npy"
+    },
+    {
+      "name": "camo_0408",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0408.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0408.npy"
+    },
+    {
+      "name": "camo_0100",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0100.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0100.npy"
+    },
+    {
+      "name": "camo_0303",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0303.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0303.npy"
+    },
+    {
+      "name": "camo_0378",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0378.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0378.npy"
+    },
+    {
+      "name": "camo_0026",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0026.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0026.npy"
+    },
+    {
+      "name": "camo_0077",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0077.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0077.npy"
+    },
+    {
+      "name": "camo_0267",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0267.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0267.npy"
+    },
+    {
+      "name": "camo_0293",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0293.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0293.npy"
+    },
+    {
+      "name": "camo_0381",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0381.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0381.npy"
+    },
+    {
+      "name": "camo_0477",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0477.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0477.npy"
+    },
+    {
+      "name": "camo_0095",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0095.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0095.npy"
+    },
+    {
+      "name": "camo_0490",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0490.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0490.npy"
+    },
+    {
+      "name": "camo_0244",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0244.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0244.npy"
+    },
+    {
+      "name": "camo_0153",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0153.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0153.npy"
+    },
+    {
+      "name": "camo_0131",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0131.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0131.npy"
+    },
+    {
+      "name": "camo_0245",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0245.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0245.npy"
+    },
+    {
+      "name": "camo_0437",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0437.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0437.npy"
+    },
+    {
+      "name": "camo_0454",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0454.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0454.npy"
+    },
+    {
+      "name": "camo_0363",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0363.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0363.npy"
+    },
+    {
+      "name": "camo_0257",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0257.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0257.npy"
+    },
+    {
+      "name": "camo_0085",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0085.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0085.npy"
+    },
+    {
+      "name": "camo_0482",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0482.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0482.npy"
+    },
+    {
+      "name": "camo_0470",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0470.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0470.npy"
+    },
+    {
+      "name": "camo_0404",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0404.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0404.npy"
+    },
+    {
+      "name": "camo_0164",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0164.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0164.npy"
+    },
+    {
+      "name": "camo_0356",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0356.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0356.npy"
+    },
+    {
+      "name": "camo_0038",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0038.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0038.npy"
+    },
+    {
+      "name": "camo_0251",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0251.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0251.npy"
+    },
+    {
+      "name": "camo_0069",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0069.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0069.npy"
+    },
+    {
+      "name": "camo_0106",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0106.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0106.npy"
+    },
+    {
+      "name": "camo_0358",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0358.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0358.npy"
+    },
+    {
+      "name": "camo_0278",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0278.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0278.npy"
+    },
+    {
+      "name": "camo_0072",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0072.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0072.npy"
+    },
+    {
+      "name": "camo_0094",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0094.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0094.npy"
+    },
+    {
+      "name": "camo_0062",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0062.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0062.npy"
+    },
+    {
+      "name": "camo_0215",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0215.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0215.npy"
+    },
+    {
+      "name": "camo_0089",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0089.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0089.npy"
+    },
+    {
+      "name": "camo_0162",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0162.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0162.npy"
+    },
+    {
+      "name": "camo_0147",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0147.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0147.npy"
+    },
+    {
+      "name": "camo_0129",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0129.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0129.npy"
+    },
+    {
+      "name": "camo_0389",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0389.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0389.npy"
+    },
+    {
+      "name": "camo_0141",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0141.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0141.npy"
+    },
+    {
+      "name": "camo_0217",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0217.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0217.npy"
+    },
+    {
+      "name": "camo_0143",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0143.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0143.npy"
+    },
+    {
+      "name": "camo_0002",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0002.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0002.npy"
+    },
+    {
+      "name": "camo_0018",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0018.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0018.npy"
+    },
+    {
+      "name": "camo_0155",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0155.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0155.npy"
+    },
+    {
+      "name": "camo_0317",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0317.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0317.npy"
+    },
+    {
+      "name": "camo_0076",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0076.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0076.npy"
+    },
+    {
+      "name": "camo_0387",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0387.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0387.npy"
+    },
+    {
+      "name": "camo_0322",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0322.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0322.npy"
+    },
+    {
+      "name": "camo_0198",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0198.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0198.npy"
+    },
+    {
+      "name": "camo_0443",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0443.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0443.npy"
+    },
+    {
+      "name": "camo_0288",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0288.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0288.npy"
+    },
+    {
+      "name": "camo_0460",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0460.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0460.npy"
+    },
+    {
+      "name": "camo_0066",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0066.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0066.npy"
+    },
+    {
+      "name": "camo_0180",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0180.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0180.npy"
+    },
+    {
+      "name": "camo_0133",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0133.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0133.npy"
+    },
+    {
+      "name": "camo_0144",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0144.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0144.npy"
+    },
+    {
+      "name": "camo_0177",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0177.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0177.npy"
+    },
+    {
+      "name": "camo_0417",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0417.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0417.npy"
+    },
+    {
+      "name": "camo_0170",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0170.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0170.npy"
+    },
+    {
+      "name": "camo_0277",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0277.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0277.npy"
+    },
+    {
+      "name": "camo_0297",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0297.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0297.npy"
+    },
+    {
+      "name": "camo_0190",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0190.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0190.npy"
+    },
+    {
+      "name": "camo_0223",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0223.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0223.npy"
+    },
+    {
+      "name": "camo_0145",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0145.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0145.npy"
+    },
+    {
+      "name": "camo_0300",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0300.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0300.npy"
+    },
+    {
+      "name": "camo_0347",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0347.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0347.npy"
+    },
+    {
+      "name": "camo_0210",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0210.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0210.npy"
+    },
+    {
+      "name": "camo_0253",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0253.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0253.npy"
+    },
+    {
+      "name": "camo_0409",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0409.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0409.npy"
+    },
+    {
+      "name": "camo_0017",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0017.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0017.npy"
+    },
+    {
+      "name": "camo_0459",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0459.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0459.npy"
+    },
+    {
+      "name": "camo_0020",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0020.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0020.npy"
+    },
+    {
+      "name": "camo_0130",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0130.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0130.npy"
+    },
+    {
+      "name": "camo_0179",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0179.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0179.npy"
+    },
+    {
+      "name": "camo_0304",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0304.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0304.npy"
+    },
+    {
+      "name": "camo_0294",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0294.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0294.npy"
+    },
+    {
+      "name": "camo_0345",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0345.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0345.npy"
+    },
+    {
+      "name": "camo_0487",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0487.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0487.npy"
+    },
+    {
+      "name": "camo_0149",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0149.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0149.npy"
+    },
+    {
+      "name": "camo_0292",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0292.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0292.npy"
+    },
+    {
+      "name": "camo_0184",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0184.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0184.npy"
+    },
+    {
+      "name": "camo_0334",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0334.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0334.npy"
+    },
+    {
+      "name": "camo_0203",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0203.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0203.npy"
+    },
+    {
+      "name": "camo_0479",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0479.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0479.npy"
+    },
+    {
+      "name": "camo_0429",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0429.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0429.npy"
+    },
+    {
+      "name": "camo_0014",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0014.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0014.npy"
+    },
+    {
+      "name": "camo_0055",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0055.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0055.npy"
+    },
+    {
+      "name": "camo_0075",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0075.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0075.npy"
+    },
+    {
+      "name": "camo_0344",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0344.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0344.npy"
+    },
+    {
+      "name": "camo_0039",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0039.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0039.npy"
+    },
+    {
+      "name": "camo_0207",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0207.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0207.npy"
+    },
+    {
+      "name": "camo_0498",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0498.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0498.npy"
+    },
+    {
+      "name": "camo_0268",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0268.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0268.npy"
+    },
+    {
+      "name": "camo_0284",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0284.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0284.npy"
+    },
+    {
+      "name": "camo_0187",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0187.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0187.npy"
+    },
+    {
+      "name": "camo_0178",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0178.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0178.npy"
+    },
+    {
+      "name": "camo_0227",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0227.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0227.npy"
+    },
+    {
+      "name": "camo_0376",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0376.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0376.npy"
+    },
+    {
+      "name": "camo_0431",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0431.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0431.npy"
+    },
+    {
+      "name": "camo_0261",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0261.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0261.npy"
+    },
+    {
+      "name": "camo_0099",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0099.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0099.npy"
+    },
+    {
+      "name": "camo_0439",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0439.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0439.npy"
+    },
+    {
+      "name": "camo_0330",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0330.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0330.npy"
+    },
+    {
+      "name": "camo_0209",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0209.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0209.npy"
+    },
+    {
+      "name": "camo_0240",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0240.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0240.npy"
+    },
+    {
+      "name": "camo_0289",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0289.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0289.npy"
+    },
+    {
+      "name": "camo_0400",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0400.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0400.npy"
+    },
+    {
+      "name": "camo_0315",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0315.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0315.npy"
+    },
+    {
+      "name": "camo_0324",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0324.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0324.npy"
+    },
+    {
+      "name": "camo_0104",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0104.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0104.npy"
+    },
+    {
+      "name": "camo_0042",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0042.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0042.npy"
+    },
+    {
+      "name": "camo_0060",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0060.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0060.npy"
+    },
+    {
+      "name": "camo_0192",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0192.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0192.npy"
+    },
+    {
+      "name": "camo_0455",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0455.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0455.npy"
+    },
+    {
+      "name": "camo_0341",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0341.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0341.npy"
+    },
+    {
+      "name": "camo_0401",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0401.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0401.npy"
+    },
+    {
+      "name": "camo_0430",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0430.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0430.npy"
+    },
+    {
+      "name": "transparent_glass_03_water_cup_view1_wide",
+      "domain": "transparent",
+      "rgb": "phase8\\data\\rgb\\transparent_glass_03_water_cup_view1_wide.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\transparent_glass_03_water_cup_view1_wide.npy"
+    },
+    {
+      "name": "transparent_glass_03_water_cup_view2_detail",
+      "domain": "transparent",
+      "rgb": "phase8\\data\\rgb\\transparent_glass_03_water_cup_view2_detail.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\transparent_glass_03_water_cup_view2_detail.npy"
+    },
+    {
+      "name": "camo_0241",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0241.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0241.npy"
+    },
+    {
+      "name": "transparent_glass_01_wine_view1_wide",
+      "domain": "transparent",
+      "rgb": "phase8\\data\\rgb\\transparent_glass_01_wine_view1_wide.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\transparent_glass_01_wine_view1_wide.npy"
+    },
+    {
+      "name": "transparent_glass_01_wine_view2_detail",
+      "domain": "transparent",
+      "rgb": "phase8\\data\\rgb\\transparent_glass_01_wine_view2_detail.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\transparent_glass_01_wine_view2_detail.npy"
+    },
+    {
+      "name": "camo_0368",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0368.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0368.npy"
+    },
+    {
+      "name": "camo_0206",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0206.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0206.npy"
+    },
+    {
+      "name": "camo_0113",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0113.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0113.npy"
+    },
+    {
+      "name": "camo_0019",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0019.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0019.npy"
+    },
+    {
+      "name": "camo_0233",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0233.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0233.npy"
+    },
+    {
+      "name": "camo_0118",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0118.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0118.npy"
+    },
+    {
+      "name": "camo_0374",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0374.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0374.npy"
+    },
+    {
+      "name": "camo_0435",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0435.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0435.npy"
+    },
+    {
+      "name": "camo_0313",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0313.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0313.npy"
+    },
+    {
+      "name": "camo_0476",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0476.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0476.npy"
+    },
+    {
+      "name": "textureless_texless_05_staircase_wall_view1_wide",
+      "domain": "textureless",
+      "rgb": "phase8\\data\\rgb\\textureless_texless_05_staircase_wall_view1_wide.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\textureless_texless_05_staircase_wall_view1_wide.npy"
+    },
+    {
+      "name": "textureless_texless_05_staircase_wall_view2_detail",
+      "domain": "textureless",
+      "rgb": "phase8\\data\\rgb\\textureless_texless_05_staircase_wall_view2_detail.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\textureless_texless_05_staircase_wall_view2_detail.npy"
+    },
+    {
+      "name": "camo_0471",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0471.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0471.npy"
+    },
+    {
+      "name": "camo_0380",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0380.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0380.npy"
+    },
+    {
+      "name": "camo_0457",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0457.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0457.npy"
+    },
+    {
+      "name": "camo_0446",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0446.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0446.npy"
+    },
+    {
+      "name": "camo_0027",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0027.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0027.npy"
+    },
+    {
+      "name": "camo_0220",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0220.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0220.npy"
+    },
+    {
+      "name": "camo_0372",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0372.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0372.npy"
+    },
+    {
+      "name": "camo_0086",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0086.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0086.npy"
+    },
+    {
+      "name": "camo_0246",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0246.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0246.npy"
+    },
+    {
+      "name": "camo_0103",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0103.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0103.npy"
+    },
+    {
+      "name": "camo_0492",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0492.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0492.npy"
+    },
+    {
+      "name": "camo_0025",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0025.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0025.npy"
+    },
+    {
+      "name": "camo_0314",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0314.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0314.npy"
+    },
+    {
+      "name": "camo_0167",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0167.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0167.npy"
+    },
+    {
+      "name": "camo_0461",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0461.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0461.npy"
+    },
+    {
+      "name": "camo_0486",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0486.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0486.npy"
+    },
+    {
+      "name": "camo_0421",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0421.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0421.npy"
+    },
+    {
+      "name": "camo_0221",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0221.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0221.npy"
+    },
+    {
+      "name": "camo_0427",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0427.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0427.npy"
+    },
+    {
+      "name": "camo_0105",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0105.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0105.npy"
+    },
+    {
+      "name": "camo_0291",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0291.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0291.npy"
+    },
+    {
+      "name": "camo_0090",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0090.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0090.npy"
+    },
+    {
+      "name": "camo_0463",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0463.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0463.npy"
+    },
+    {
+      "name": "camo_0168",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0168.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0168.npy"
+    },
+    {
+      "name": "camo_0474",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0474.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0474.npy"
+    },
+    {
+      "name": "camo_0048",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0048.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0048.npy"
+    },
+    {
+      "name": "camo_0097",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0097.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0097.npy"
+    },
+    {
+      "name": "camo_0208",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0208.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0208.npy"
+    },
+    {
+      "name": "camo_0362",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0362.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0362.npy"
+    },
+    {
+      "name": "camo_0124",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0124.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0124.npy"
+    },
+    {
+      "name": "camo_0242",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0242.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0242.npy"
+    },
+    {
+      "name": "camo_0067",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0067.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0067.npy"
+    },
+    {
+      "name": "camo_0109",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0109.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0109.npy"
+    },
+    {
+      "name": "camo_0495",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0495.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0495.npy"
+    },
+    {
+      "name": "camo_0441",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0441.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0441.npy"
+    },
+    {
+      "name": "camo_0121",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0121.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0121.npy"
+    },
+    {
+      "name": "camo_0263",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0263.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0263.npy"
+    },
+    {
+      "name": "camo_0407",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0407.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0407.npy"
+    },
+    {
+      "name": "camo_0169",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0169.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0169.npy"
+    },
+    {
+      "name": "camo_0391",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0391.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0391.npy"
+    },
+    {
+      "name": "camo_0034",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0034.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0034.npy"
+    },
+    {
+      "name": "camo_0354",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0354.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0354.npy"
+    },
+    {
+      "name": "camo_0030",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0030.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0030.npy"
+    },
+    {
+      "name": "camo_0411",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0411.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0411.npy"
+    },
+    {
+      "name": "camo_0472",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0472.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0472.npy"
+    },
+    {
+      "name": "camo_0364",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0364.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0364.npy"
+    },
+    {
+      "name": "camo_0392",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0392.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0392.npy"
+    },
+    {
+      "name": "camo_0010",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0010.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0010.npy"
+    },
+    {
+      "name": "camo_0173",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0173.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0173.npy"
+    },
+    {
+      "name": "camo_0351",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0351.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0351.npy"
+    },
+    {
+      "name": "camo_0115",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0115.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0115.npy"
+    },
+    {
+      "name": "camo_0406",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0406.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0406.npy"
+    },
+    {
+      "name": "camo_0061",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0061.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0061.npy"
+    },
+    {
+      "name": "camo_0231",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0231.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0231.npy"
+    },
+    {
+      "name": "camo_0264",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0264.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0264.npy"
+    },
+    {
+      "name": "camo_0224",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0224.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0224.npy"
+    },
+    {
+      "name": "camo_0326",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0326.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0326.npy"
+    },
+    {
+      "name": "camo_0483",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0483.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0483.npy"
+    },
+    {
+      "name": "camo_0159",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0159.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0159.npy"
+    },
+    {
+      "name": "camo_0102",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0102.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0102.npy"
+    },
+    {
+      "name": "camo_0318",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0318.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0318.npy"
+    },
+    {
+      "name": "camo_0382",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0382.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0382.npy"
+    },
+    {
+      "name": "camo_0353",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0353.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0353.npy"
+    },
+    {
+      "name": "textureless_texless_01_white_room_view1_wide",
+      "domain": "textureless",
+      "rgb": "phase8\\data\\rgb\\textureless_texless_01_white_room_view1_wide.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\textureless_texless_01_white_room_view1_wide.npy"
+    },
+    {
+      "name": "textureless_texless_01_white_room_view2_detail",
+      "domain": "textureless",
+      "rgb": "phase8\\data\\rgb\\textureless_texless_01_white_room_view2_detail.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\textureless_texless_01_white_room_view2_detail.npy"
+    },
+    {
+      "name": "camo_0375",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0375.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0375.npy"
+    },
+    {
+      "name": "camo_0084",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0084.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0084.npy"
+    },
+    {
+      "name": "camo_0281",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0281.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0281.npy"
+    },
+    {
+      "name": "camo_0243",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0243.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0243.npy"
+    },
+    {
+      "name": "camo_0065",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0065.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0065.npy"
+    },
+    {
+      "name": "camo_0064",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0064.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0064.npy"
+    },
+    {
+      "name": "camo_0272",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0272.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0272.npy"
+    },
+    {
+      "name": "camo_0434",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0434.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0434.npy"
+    },
+    {
+      "name": "camo_0248",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0248.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0248.npy"
+    },
+    {
+      "name": "camo_0043",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0043.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0043.npy"
+    },
+    {
+      "name": "camo_0428",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0428.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0428.npy"
+    },
+    {
+      "name": "camo_0385",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0385.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0385.npy"
+    },
+    {
+      "name": "camo_0123",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0123.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0123.npy"
+    },
+    {
+      "name": "camo_0029",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0029.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0029.npy"
+    },
+    {
+      "name": "camo_0122",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0122.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0122.npy"
+    },
+    {
+      "name": "camo_0157",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0157.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0157.npy"
+    },
+    {
+      "name": "camo_0365",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0365.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0365.npy"
+    },
+    {
+      "name": "camo_0337",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0337.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0337.npy"
+    },
+    {
+      "name": "camo_0009",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0009.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0009.npy"
+    },
+    {
+      "name": "camo_0250",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0250.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0250.npy"
+    },
+    {
+      "name": "camo_0165",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0165.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0165.npy"
+    },
+    {
+      "name": "camo_0306",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0306.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0306.npy"
+    },
+    {
+      "name": "camo_0000",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0000.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0000.npy"
+    },
+    {
+      "name": "camo_0271",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0271.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0271.npy"
+    },
+    {
+      "name": "camo_0276",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0276.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0276.npy"
+    },
+    {
+      "name": "camo_0082",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0082.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0082.npy"
+    },
+    {
+      "name": "camo_0191",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0191.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0191.npy"
+    },
+    {
+      "name": "camo_0468",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0468.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0468.npy"
+    },
+    {
+      "name": "camo_0484",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0484.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0484.npy"
+    },
+    {
+      "name": "camo_0410",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0410.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0410.npy"
+    },
+    {
+      "name": "camo_0339",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0339.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0339.npy"
+    },
+    {
+      "name": "camo_0152",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0152.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0152.npy"
+    },
+    {
+      "name": "camo_0320",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0320.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0320.npy"
+    },
+    {
+      "name": "camo_0054",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0054.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0054.npy"
+    },
+    {
+      "name": "camo_0259",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0259.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0259.npy"
+    },
+    {
+      "name": "camo_0091",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0091.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0091.npy"
+    },
+    {
+      "name": "camo_0256",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0256.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0256.npy"
+    },
+    {
+      "name": "camo_0370",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0370.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0370.npy"
+    },
+    {
+      "name": "camo_0001",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0001.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0001.npy"
+    },
+    {
+      "name": "camo_0423",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0423.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0423.npy"
+    },
+    {
+      "name": "camo_0080",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0080.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0080.npy"
+    },
+    {
+      "name": "camo_0222",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0222.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0222.npy"
+    },
+    {
+      "name": "camo_0442",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0442.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0442.npy"
+    },
+    {
+      "name": "transparent_glass_04_bottle_view1_wide",
+      "domain": "transparent",
+      "rgb": "phase8\\data\\rgb\\transparent_glass_04_bottle_view1_wide.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\transparent_glass_04_bottle_view1_wide.npy"
+    },
+    {
+      "name": "transparent_glass_04_bottle_view2_detail",
+      "domain": "transparent",
+      "rgb": "phase8\\data\\rgb\\transparent_glass_04_bottle_view2_detail.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\transparent_glass_04_bottle_view2_detail.npy"
+    },
+    {
+      "name": "camo_0466",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0466.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0466.npy"
+    },
+    {
+      "name": "camo_0328",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0328.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0328.npy"
+    },
+    {
+      "name": "camo_0415",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0415.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0415.npy"
+    },
+    {
+      "name": "camo_0447",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0447.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0447.npy"
+    },
+    {
+      "name": "camo_0058",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0058.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0058.npy"
+    },
+    {
+      "name": "camo_0005",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0005.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0005.npy"
+    },
+    {
+      "name": "camo_0283",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0283.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0283.npy"
+    },
+    {
+      "name": "camo_0128",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0128.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0128.npy"
+    },
+    {
+      "name": "camo_0270",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0270.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0270.npy"
+    },
+    {
+      "name": "camo_0239",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0239.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0239.npy"
+    },
+    {
+      "name": "camo_0399",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0399.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0399.npy"
+    },
+    {
+      "name": "camo_0195",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0195.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0195.npy"
+    },
+    {
+      "name": "camo_0197",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0197.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0197.npy"
+    },
+    {
+      "name": "camo_0032",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0032.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0032.npy"
+    },
+    {
+      "name": "camo_0305",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0305.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0305.npy"
+    },
+    {
+      "name": "camo_0467",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0467.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0467.npy"
+    },
+    {
+      "name": "camo_0348",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0348.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0348.npy"
+    },
+    {
+      "name": "camo_0469",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0469.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0469.npy"
+    },
+    {
+      "name": "camo_0440",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0440.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0440.npy"
+    }
+  ],
+  "val": [
+    {
+      "name": "camo_0078",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0078.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0078.npy"
+    },
+    {
+      "name": "camo_0056",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0056.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0056.npy"
+    },
+    {
+      "name": "camo_0024",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0024.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0024.npy"
+    },
+    {
+      "name": "camo_0046",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0046.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0046.npy"
+    },
+    {
+      "name": "camo_0252",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0252.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0252.npy"
+    },
+    {
+      "name": "camo_0260",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0260.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0260.npy"
+    },
+    {
+      "name": "camo_0070",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0070.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0070.npy"
+    },
+    {
+      "name": "camo_0397",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0397.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0397.npy"
+    },
+    {
+      "name": "camo_0438",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0438.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0438.npy"
+    },
+    {
+      "name": "camo_0204",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0204.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0204.npy"
+    },
+    {
+      "name": "camo_0298",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0298.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0298.npy"
+    },
+    {
+      "name": "camo_0219",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0219.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0219.npy"
+    },
+    {
+      "name": "camo_0299",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0299.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0299.npy"
+    },
+    {
+      "name": "camo_0134",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0134.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0134.npy"
+    },
+    {
+      "name": "camo_0275",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0275.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0275.npy"
+    },
+    {
+      "name": "camo_0485",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0485.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0485.npy"
+    },
+    {
+      "name": "camo_0126",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0126.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0126.npy"
+    },
+    {
+      "name": "textureless_texless_04_blank_studio_view1_wide",
+      "domain": "textureless",
+      "rgb": "phase8\\data\\rgb\\textureless_texless_04_blank_studio_view1_wide.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\textureless_texless_04_blank_studio_view1_wide.npy"
+    },
+    {
+      "name": "textureless_texless_04_blank_studio_view2_detail",
+      "domain": "textureless",
+      "rgb": "phase8\\data\\rgb\\textureless_texless_04_blank_studio_view2_detail.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\textureless_texless_04_blank_studio_view2_detail.npy"
+    },
+    {
+      "name": "camo_0452",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0452.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0452.npy"
+    },
+    {
+      "name": "camo_0073",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0073.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0073.npy"
+    },
+    {
+      "name": "camo_0234",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0234.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0234.npy"
+    },
+    {
+      "name": "camo_0329",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0329.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0329.npy"
+    },
+    {
+      "name": "camo_0202",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0202.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0202.npy"
+    },
+    {
+      "name": "camo_0255",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0255.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0255.npy"
+    },
+    {
+      "name": "camo_0335",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0335.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0335.npy"
+    },
+    {
+      "name": "camo_0386",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0386.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0386.npy"
+    },
+    {
+      "name": "camo_0462",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0462.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0462.npy"
+    },
+    {
+      "name": "camo_0367",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0367.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0367.npy"
+    },
+    {
+      "name": "camo_0290",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0290.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0290.npy"
+    },
+    {
+      "name": "camo_0108",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0108.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0108.npy"
+    },
+    {
+      "name": "camo_0033",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0033.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0033.npy"
+    },
+    {
+      "name": "camo_0137",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0137.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0137.npy"
+    },
+    {
+      "name": "camo_0205",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0205.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0205.npy"
+    },
+    {
+      "name": "camo_0161",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0161.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0161.npy"
+    },
+    {
+      "name": "camo_0493",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0493.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0493.npy"
+    },
+    {
+      "name": "camo_0117",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0117.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0117.npy"
+    },
+    {
+      "name": "camo_0028",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0028.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0028.npy"
+    },
+    {
+      "name": "camo_0393",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0393.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0393.npy"
+    },
+    {
+      "name": "camo_0166",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0166.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0166.npy"
+    },
+    {
+      "name": "camo_0350",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0350.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0350.npy"
+    },
+    {
+      "name": "camo_0478",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0478.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0478.npy"
+    },
+    {
+      "name": "camo_0285",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0285.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0285.npy"
+    },
+    {
+      "name": "camo_0352",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0352.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0352.npy"
+    },
+    {
+      "name": "transparent_glass_05_window_view1_wide",
+      "domain": "transparent",
+      "rgb": "phase8\\data\\rgb\\transparent_glass_05_window_view1_wide.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\transparent_glass_05_window_view1_wide.npy"
+    },
+    {
+      "name": "transparent_glass_05_window_view2_detail",
+      "domain": "transparent",
+      "rgb": "phase8\\data\\rgb\\transparent_glass_05_window_view2_detail.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\transparent_glass_05_window_view2_detail.npy"
+    },
+    {
+      "name": "camo_0138",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0138.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0138.npy"
+    },
+    {
+      "name": "camo_0425",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0425.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0425.npy"
+    },
+    {
+      "name": "camo_0236",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0236.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0236.npy"
+    },
+    {
+      "name": "camo_0420",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0420.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0420.npy"
+    },
+    {
+      "name": "textureless_texless_06_desk_surface_view1_wide",
+      "domain": "textureless",
+      "rgb": "phase8\\data\\rgb\\textureless_texless_06_desk_surface_view1_wide.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\textureless_texless_06_desk_surface_view1_wide.npy"
+    },
+    {
+      "name": "textureless_texless_06_desk_surface_view2_detail",
+      "domain": "textureless",
+      "rgb": "phase8\\data\\rgb\\textureless_texless_06_desk_surface_view2_detail.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\textureless_texless_06_desk_surface_view2_detail.npy"
+    },
+    {
+      "name": "camo_0449",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0449.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0449.npy"
+    },
+    {
+      "name": "camo_0273",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0273.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0273.npy"
+    },
+    {
+      "name": "camo_0087",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0087.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0087.npy"
+    },
+    {
+      "name": "camo_0422",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0422.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0422.npy"
+    },
+    {
+      "name": "camo_0311",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0311.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0311.npy"
+    },
+    {
+      "name": "camo_0036",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0036.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0036.npy"
+    },
+    {
+      "name": "camo_0331",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0331.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0331.npy"
+    },
+    {
+      "name": "camo_0349",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0349.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0349.npy"
+    },
+    {
+      "name": "camo_0481",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0481.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0481.npy"
+    },
+    {
+      "name": "camo_0136",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0136.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0136.npy"
+    },
+    {
+      "name": "camo_0343",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0343.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0343.npy"
+    },
+    {
+      "name": "camo_0107",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0107.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0107.npy"
+    },
+    {
+      "name": "camo_0181",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0181.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0181.npy"
+    },
+    {
+      "name": "camo_0189",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0189.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0189.npy"
+    },
+    {
+      "name": "camo_0083",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0083.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0083.npy"
+    },
+    {
+      "name": "camo_0186",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0186.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0186.npy"
+    },
+    {
+      "name": "camo_0325",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0325.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0325.npy"
+    },
+    {
+      "name": "camo_0232",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0232.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0232.npy"
+    },
+    {
+      "name": "camo_0465",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0465.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0465.npy"
+    },
+    {
+      "name": "camo_0458",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0458.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0458.npy"
+    },
+    {
+      "name": "camo_0051",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0051.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0051.npy"
+    },
+    {
+      "name": "camo_0489",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0489.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0489.npy"
+    },
+    {
+      "name": "camo_0444",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0444.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0444.npy"
+    },
+    {
+      "name": "camo_0148",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0148.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0148.npy"
+    },
+    {
+      "name": "camo_0395",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0395.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0395.npy"
+    },
+    {
+      "name": "camo_0116",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0116.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0116.npy"
+    },
+    {
+      "name": "camo_0338",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0338.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0338.npy"
+    }
+  ],
+  "test": [
+    {
+      "name": "camo_0023",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0023.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0023.npy"
+    },
+    {
+      "name": "camo_0035",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0035.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0035.npy"
+    },
+    {
+      "name": "camo_0360",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0360.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0360.npy"
+    },
+    {
+      "name": "camo_0098",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0098.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0098.npy"
+    },
+    {
+      "name": "camo_0295",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0295.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0295.npy"
+    },
+    {
+      "name": "camo_0185",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0185.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0185.npy"
+    },
+    {
+      "name": "camo_0316",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0316.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0316.npy"
+    },
+    {
+      "name": "camo_0321",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0321.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0321.npy"
+    },
+    {
+      "name": "camo_0424",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0424.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0424.npy"
+    },
+    {
+      "name": "camo_0150",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0150.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0150.npy"
+    },
+    {
+      "name": "camo_0282",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0282.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0282.npy"
+    },
+    {
+      "name": "camo_0040",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0040.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0040.npy"
+    },
+    {
+      "name": "camo_0193",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0193.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0193.npy"
+    },
+    {
+      "name": "camo_0063",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0063.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0063.npy"
+    },
+    {
+      "name": "camo_0274",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0274.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0274.npy"
+    },
+    {
+      "name": "camo_0235",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0235.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0235.npy"
+    },
+    {
+      "name": "camo_0373",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0373.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0373.npy"
+    },
+    {
+      "name": "camo_0022",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0022.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0022.npy"
+    },
+    {
+      "name": "camo_0413",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0413.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0413.npy"
+    },
+    {
+      "name": "camo_0135",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0135.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0135.npy"
+    },
+    {
+      "name": "camo_0309",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0309.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0309.npy"
+    },
+    {
+      "name": "camo_0176",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0176.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0176.npy"
+    },
+    {
+      "name": "camo_0433",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0433.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0433.npy"
+    },
+    {
+      "name": "camo_0183",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0183.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0183.npy"
+    },
+    {
+      "name": "camo_0049",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0049.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0049.npy"
+    },
+    {
+      "name": "camo_0194",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0194.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0194.npy"
+    },
+    {
+      "name": "camo_0491",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0491.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0491.npy"
+    },
+    {
+      "name": "textureless_texless_02_white_wall_view1_wide",
+      "domain": "textureless",
+      "rgb": "phase8\\data\\rgb\\textureless_texless_02_white_wall_view1_wide.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\textureless_texless_02_white_wall_view1_wide.npy"
+    },
+    {
+      "name": "textureless_texless_02_white_wall_view2_detail",
+      "domain": "textureless",
+      "rgb": "phase8\\data\\rgb\\textureless_texless_02_white_wall_view2_detail.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\textureless_texless_02_white_wall_view2_detail.npy"
+    },
+    {
+      "name": "camo_0172",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0172.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0172.npy"
+    },
+    {
+      "name": "camo_0390",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0390.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0390.npy"
+    },
+    {
+      "name": "camo_0110",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0110.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0110.npy"
+    },
+    {
+      "name": "camo_0079",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0079.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0079.npy"
+    },
+    {
+      "name": "camo_0475",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0475.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0475.npy"
+    },
+    {
+      "name": "camo_0174",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0174.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0174.npy"
+    },
+    {
+      "name": "camo_0494",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0494.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0494.npy"
+    },
+    {
+      "name": "camo_0357",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0357.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0357.npy"
+    },
+    {
+      "name": "camo_0081",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0081.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0081.npy"
+    },
+    {
+      "name": "camo_0412",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0412.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0412.npy"
+    },
+    {
+      "name": "camo_0388",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0388.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0388.npy"
+    },
+    {
+      "name": "camo_0003",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0003.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0003.npy"
+    },
+    {
+      "name": "camo_0445",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0445.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0445.npy"
+    },
+    {
+      "name": "camo_0414",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0414.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0414.npy"
+    },
+    {
+      "name": "camo_0142",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0142.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0142.npy"
+    },
+    {
+      "name": "camo_0301",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0301.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0301.npy"
+    },
+    {
+      "name": "camo_0229",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0229.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0229.npy"
+    },
+    {
+      "name": "camo_0112",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0112.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0112.npy"
+    },
+    {
+      "name": "camo_0214",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0214.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0214.npy"
+    },
+    {
+      "name": "camo_0497",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0497.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0497.npy"
+    },
+    {
+      "name": "camo_0359",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0359.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0359.npy"
+    },
+    {
+      "name": "camo_0332",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0332.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0332.npy"
+    },
+    {
+      "name": "camo_0366",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0366.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0366.npy"
+    },
+    {
+      "name": "camo_0101",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0101.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0101.npy"
+    },
+    {
+      "name": "camo_0287",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0287.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0287.npy"
+    },
+    {
+      "name": "camo_0013",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0013.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0013.npy"
+    },
+    {
+      "name": "camo_0308",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0308.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0308.npy"
+    },
+    {
+      "name": "camo_0258",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0258.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0258.npy"
+    },
+    {
+      "name": "camo_0119",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0119.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0119.npy"
+    },
+    {
+      "name": "camo_0111",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0111.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0111.npy"
+    },
+    {
+      "name": "camo_0047",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0047.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0047.npy"
+    },
+    {
+      "name": "camo_0015",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0015.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0015.npy"
+    },
+    {
+      "name": "camo_0016",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0016.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0016.npy"
+    },
+    {
+      "name": "camo_0216",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0216.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0216.npy"
+    },
+    {
+      "name": "camo_0302",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0302.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0302.npy"
+    },
+    {
+      "name": "camo_0044",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0044.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0044.npy"
+    },
+    {
+      "name": "camo_0279",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0279.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0279.npy"
+    },
+    {
+      "name": "camo_0456",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0456.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0456.npy"
+    },
+    {
+      "name": "transparent_glass_02_beaker_view1_wide",
+      "domain": "transparent",
+      "rgb": "phase8\\data\\rgb\\transparent_glass_02_beaker_view1_wide.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\transparent_glass_02_beaker_view1_wide.npy"
+    },
+    {
+      "name": "transparent_glass_02_beaker_view2_detail",
+      "domain": "transparent",
+      "rgb": "phase8\\data\\rgb\\transparent_glass_02_beaker_view2_detail.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\transparent_glass_02_beaker_view2_detail.npy"
+    },
+    {
+      "name": "camo_0346",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0346.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0346.npy"
+    },
+    {
+      "name": "camo_0052",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0052.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0052.npy"
+    },
+    {
+      "name": "camo_0377",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0377.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0377.npy"
+    },
+    {
+      "name": "camo_0071",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0071.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0071.npy"
+    },
+    {
+      "name": "camo_0114",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0114.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0114.npy"
+    },
+    {
+      "name": "camo_0125",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0125.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0125.npy"
+    },
+    {
+      "name": "camo_0140",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0140.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0140.npy"
+    },
+    {
+      "name": "camo_0379",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0379.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0379.npy"
+    },
+    {
+      "name": "camo_0012",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0012.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0012.npy"
+    },
+    {
+      "name": "camo_0057",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0057.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0057.npy"
+    },
+    {
+      "name": "camo_0327",
+      "domain": "camo",
+      "rgb": "phase8\\data\\rgb\\camo_0327.jpg",
+      "depth_gt": "phase8\\data\\pseudo_gt\\camo_0327.npy"
+    }
+  ]
+}

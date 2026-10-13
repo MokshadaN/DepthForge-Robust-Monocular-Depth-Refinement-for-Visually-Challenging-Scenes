@@ -1,4 +1,15 @@
 """
+[DEPRECATED — DO NOT RUN]
+
+This script downloads real photos but then generates 15 near-identical sub-crops
+per image using a simple 4x4 offset grid (only 4 unique y positions × 4 unique
+x positions). The user identified these as "one image present multiple times, only
+position changed" — this is that bug.
+
+USE INSTEAD: phase7/reorganize_clean_dataset.py
+  (downloads 20 real transparent + 20 real textureless scenes,
+   saves exactly 2 meaningful views per scene: full-frame + centre-crop)
+
 Phase 7: Download 100% Authentic Real-World Photographs of Transparent Objects & Textureless Architecture.
 Replaces all procedural / synthetic placeholders with genuine high-resolution photographs.
 """

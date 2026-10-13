@@ -2,6 +2,11 @@
 Phase 7: Scalable Training Loop across Unified 500 Multi-Domain Dataset.
 Tracks Train Loss, Validation Loss, and Validation Boundary Sharpness (BSI) per epoch.
 Evaluates on Held-Out Test Partition and generates publication graphics.
+
+FIXES APPLIED (Audit 2026-10-08):
+  B4: Removed max_samples hard cap (was 30/15/15) that silently discarded 492 of 522 images.
+      All cached samples are now used every epoch.
+  B5: output_size=(th, tw) confirmed as (height, width) to match runner expectation.
 """
 
 from __future__ import annotations
@@ -56,7 +61,10 @@ def compute_energy_tensor(img_bgr: np.ndarray) -> torch.Tensor:
 
 def run_training_pipeline():
     setup_style()
-    data_dir = Path("phase7/data/unified_500").resolve()
+    # Uses unified_10k if built, falls back to unified_500 for compatibility
+    data_dir_10k = Path("phase7/data/unified_10k").resolve()
+    data_dir_500 = Path("phase7/data/unified_500").resolve()
+    data_dir = data_dir_10k if data_dir_10k.exists() and any(data_dir_10k.glob("*.jpg")) else data_dir_500
     splits_p = Path("phase7/data/unified_splits.json").resolve()
     out_dir = Path("phase7/results").resolve()
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -73,7 +81,7 @@ def run_training_pipeline():
     print("=" * 88)
     print("  PHASE 7: MULTI-DOMAIN SCALABLE TRAINING & LOSS CONVERGENCE")
     print("=" * 88)
-    print(f"Total Dataset: 500 Images | Train: {len(train_files)} | Val: {len(val_files)} | Test: {len(test_files)}\n")
+    print(f"Total Dataset: {len(train_files)+len(val_files)+len(test_files)} Images | Train: {len(train_files)} | Val: {len(val_files)} | Test: {len(test_files)}\n")
 
     # Load Base UniDAC Engine
     print("Initializing Pretrained UniDAC Foundation Model...")
@@ -83,42 +91,48 @@ def run_training_pipeline():
         sample=sample_cfg
     )
 
-    # Feature extraction function
+    # Feature extraction: run UniDAC once per image, cache tensors in memory.
+    # NOTE: output_size=(height, width) matches the runner's internal convention.
+    # FIX B4: No max_samples cap — all images in each split are processed.
     temp_p = out_dir / "temp_feat.jpg"
-    def prepare_batch(file_list, max_samples=40):
+    def prepare_batch(file_list: list[str], split_name: str = "") -> list[dict]:
         batch = []
-        selected = file_list[:max_samples]
-        for idx, fname in enumerate(selected, 1):
+        total = len(file_list)
+        for idx, fname in enumerate(file_list, 1):
             img_p = data_dir / fname
             img = cv2.imread(str(img_p))
             if img is None:
+                print(f"  [WARN] Cannot read {fname}, skipping.")
                 continue
             h, w = img.shape[:2]
-            tw, th = 320, int(h * 320 / w)
-            tw = (tw // 16) * 16
-            th = (th // 16) * 16
-            img_res = cv2.resize(img, (tw, th))
-            
+            # Resize to fixed width=320, height aligned to 16px grid
+            tw = 320
+            th = max(16, (int(h * tw / w) // 16) * 16)
+            img_res = cv2.resize(img, (tw, th))  # cv2 uses (width, height)
+
             cv2.imwrite(str(temp_p), img_res)
+            # output_size=(height, width) — runner interprets as (H, W)
             base_d = unidac_runner.predict(temp_p, output_size=(th, tw))
-            
-            rgb_t = torch.from_numpy(img_res).permute(2, 0, 1).unsqueeze(0).float() / 255.0
+
+            rgb_t   = torch.from_numpy(img_res).permute(2, 0, 1).unsqueeze(0).float() / 255.0
             depth_t = torch.from_numpy(base_d).unsqueeze(0).unsqueeze(0).float()
             energy_t = compute_energy_tensor(img_res)
-            
+
             batch.append({
-                "name": fname,
-                "rgb": rgb_t,
-                "depth": depth_t,
+                "name":   fname,
+                "rgb":    rgb_t,
+                "depth":  depth_t,
                 "energy": energy_t,
-                "shape": (th, tw)
+                "shape":  (th, tw),
             })
+            if idx % 50 == 0 or idx == total:
+                print(f"  [{split_name}] Cached {idx}/{total} images...")
         return batch
 
-    print("Pre-caching Train and Validation feature batches...")
-    train_batch = prepare_batch(train_files, max_samples=30)
-    val_batch = prepare_batch(val_files, max_samples=15)
-    test_batch = prepare_batch(test_files, max_samples=15)
+    print("Pre-caching ALL Train / Val / Test feature batches (one-time UniDAC forward pass)...")
+    train_batch = prepare_batch(train_files, "Train")
+    val_batch   = prepare_batch(val_files,   "Val")
+    test_batch  = prepare_batch(test_files,  "Test")
     if temp_p.exists():
         temp_p.unlink()
 

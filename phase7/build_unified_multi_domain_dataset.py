@@ -1,4 +1,16 @@
 """
+[DEPRECATED — DO NOT RUN]
+
+This script was the original Phase 7 builder. It generates:
+  - Synthetic transparent objects (rectangles/ellipses drawn over camo backgrounds)
+  - Textureless scenes cropped from a single ScanNet image with a painted white box
+
+Both are procedural/synthetic overlays — not real photographs.
+The user explicitly requested authentic real-world images only.
+
+USE INSTEAD: phase7/reorganize_clean_dataset.py
+  (downloads 20 real transparent + 20 real textureless scenes from Unsplash)
+
 Phase 7: Multi-Domain Dataset Synthesizer and Builder (500+ Images).
 Assembles a balanced, multi-source dataset across:
   1. Biological Camouflage (250 images from CAMO-FS)
