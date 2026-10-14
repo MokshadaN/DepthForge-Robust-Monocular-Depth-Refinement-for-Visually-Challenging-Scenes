@@ -62,3 +62,22 @@ The standalone training and evaluation script is located at:
 8. **Cell 7: Per-Domain Evaluation & Comprehensive Comparison Metrics (BSI, AbsRel, SILog, $\delta < 1.25$)**
 9. **Cell 8: 6-Column High-Resolution Qualitative Comparison Panels**
 10. **Cell 9: Checkpoint Export & Results ZIP Packaging**
+
+---
+
+## 🏆 Final Results Summary
+
+Full detailed results, analysis, and conclusions are documented in:  
+📄 **[`phase9/FINAL_RESULTS_AND_CONCLUSIONS.md`](file:///d:/IIITP/Intern_2_Month/UniDAC/phase9/FINAL_RESULTS_AND_CONCLUSIONS.md)**
+
+| Domain | Baseline AbsRel | Phase 9 Refined (Ours) | Relative Gain | Autonomous Routing Acc |
+| :--- | :---: | :---: | :---: | :---: |
+| **Camouflage** (CAMO-FS) | `0.6441` | **`0.6197`** | 🟢 **+3.8%** | **90.7%** (136/150) |
+| **Glass** (GSD) | `0.5264` | **`0.5018`** | 🟢 **+4.7%** | **93.3%** (140/150) |
+| **Textureless** (NYUv2) | `0.5838` | **`0.5827`** | 🟢 **+0.2%** | **99.3%** (149/150) |
+| **Multi-Domain Overall** | `0.5848` | **`0.5680`** | 🟢 **+2.9%** | **94.4%** (425/450) |
+
+- **Best Model Checkpoint:** [`phase9/phase9_adapter_best.zip`](file:///d:/IIITP/Intern_2_Month/UniDAC/phase9/phase9_adapter_best.zip) (857 KB)
+- **Visual Diagnostic Panels:** [`phase9/results_extracted/panels/`](file:///d:/IIITP/Intern_2_Month/UniDAC/phase9/results_extracted/panels/)
+- **Local Analysis Charts:** [`phase9/local_analysis/`](file:///d:/IIITP/Intern_2_Month/UniDAC/phase9/local_analysis/)
+
