@@ -456,12 +456,39 @@ for ddir, didx, dname in domain_cfg:
 
 print(f'\nTotal cached: {len(all_samples)}')
 
-random.shuffle(all_samples)
-n = len(all_samples)
-n_train = int(n * 0.70); n_val = int(n * 0.15)
-train_data = all_samples[:n_train]
-val_data   = all_samples[n_train:n_train + n_val]
-test_data  = all_samples[n_train + n_val:]
+# ── Stratified split (70/15/15 per domain) ─────────────────────────────────
+# Fixes: random shuffle caused camouflage to land almost entirely in train,
+# producing 0 camouflage test samples and inflating per-domain routing stats.
+from collections import defaultdict
+by_domain = defaultdict(list)
+for s in all_samples:
+    by_domain[s['domain']].append(s)
+
+train_data, val_data, test_data = [], [], []
+for di, slist in by_domain.items():
+    random.shuffle(slist)
+    n = len(slist)
+    n_tr = int(n * 0.70)
+    n_vl = int(n * 0.15)
+    train_data += slist[:n_tr]
+    val_data   += slist[n_tr:n_tr + n_vl]
+    test_data  += slist[n_tr + n_vl:]
+
+random.shuffle(train_data)
+random.shuffle(val_data)
+random.shuffle(test_data)
+
+# Diagnostic: verify domain balance in each split
+def split_stats(split, name):
+    counts = defaultdict(int)
+    for s in split: counts[s['domain']] += 1
+    parts = '  '.join(f'{DOMAIN_NAMES[d]}={counts[d]}' for d in sorted(counts))
+    print(f'  {name:6s}: total={len(split)}  [{parts}]')
+
+print('Stratified split:')
+split_stats(train_data, 'Train')
+split_stats(val_data,   'Val')
+split_stats(test_data,  'Test')
 print(f'Train={len(train_data)} | Val={len(val_data)} | Test={len(test_data)}')
 
 
