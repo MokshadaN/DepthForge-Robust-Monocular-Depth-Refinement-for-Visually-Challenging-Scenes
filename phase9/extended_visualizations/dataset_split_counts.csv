@@ -1,0 +1,10 @@
+split,domain,count
+Train,camouflage,700
+Train,glass,700
+Train,textureless,700
+Validation,camouflage,150
+Validation,glass,150
+Validation,textureless,150
+Test,camouflage,150
+Test,glass,150
+Test,textureless,150

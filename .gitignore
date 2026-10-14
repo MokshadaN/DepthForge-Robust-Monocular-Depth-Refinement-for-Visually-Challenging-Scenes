@@ -18,6 +18,7 @@ checkpoints/
 # Temporary files
 phase4/temp_input.png
 phase9/phase9_results.zip
+phase9/phase9_extended_visualizations.zip
 
 # IDE and OS
 .vscode/

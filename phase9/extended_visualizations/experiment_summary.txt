@@ -1,0 +1,14 @@
+PHASE 9 — EXTENDED VISUAL ANALYTICS
+=======================================================
+Train images: 2100
+Validation images: 450
+Test images: 450
+Best epoch by validation loss: 55
+Routing accuracy: 0.94444
+Routing macro recall: 0.94444
+
+Interpretation:
+- Router predicts dataset/source domain labels.
+- DPT-Large output is a pseudo-target in the qualitative panels.
+- Per-image alignment is applied by the current Cell 1 metric code.
+- These plots alone do not establish metric-depth accuracy.

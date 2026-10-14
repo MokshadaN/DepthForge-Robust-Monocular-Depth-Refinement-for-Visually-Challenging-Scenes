@@ -140,10 +140,11 @@ A rigorous stratified split (70% train, 15% validation, 15% test) was maintained
 ---
 
 ## 💡 6. Key Conclusions & Findings
-
-1. **Glass surfaces benefit most from dedicated expert capacity (+4.7% AbsRel gain):** Transparent surfaces break Lambertian reflectance assumptions; an expert head learns refractive cues that monolithic networks wash out.
-2. **Autonomous soft routing achieves 94.4% accuracy with zero test-time flags:** The shared trunk learns distinct domain representations directly from visual gradients and coarse depth distributions.
-3. **High computational efficiency:** With only 228K parameters, the adapter requires < 5 ms per inference frame on an edge GPU, making it suitable for robotics and AR applications.
-
----
-*For the complete source code and raw artifacts, see [`phase9/kaggle_phase9_finetune.py`](file:///d:/IIITP/Intern_2_Month/UniDAC/phase9/kaggle_phase9_finetune.py) and [`phase9/FINAL_RESULTS_AND_CONCLUSIONS.md`](file:///d:/IIITP/Intern_2_Month/UniDAC/phase9/FINAL_RESULTS_AND_CONCLUSIONS.md).*
+ 
+ 1. **Glass surfaces benefit most from dedicated expert capacity (+4.7% AbsRel gain):** Transparent surfaces break Lambertian reflectance assumptions; an expert head learns refractive cues that monolithic networks wash out.
+ 2. **Autonomous soft routing achieves 94.4% accuracy with zero test-time flags:** The shared trunk learns distinct domain representations directly from visual gradients and coarse depth distributions.
+ 3. **High computational efficiency:** With only 228K parameters, the adapter requires < 5 ms per inference frame on an edge GPU, making it suitable for robotics and AR applications.
++4. **Comprehensive Extended Analytics Suite:** Complete per-image distributions, confusion matrices, row profiles, and metric heatmaps are preserved in [`phase9/extended_visualizations/`](file:///d:/IIITP/Intern_2_Month/UniDAC/phase9/extended_visualizations/).
+ 
+ ---
+ *For the complete source code and raw artifacts, see [`phase9/kaggle_phase9_finetune.py`](file:///d:/IIITP/Intern_2_Month/UniDAC/phase9/kaggle_phase9_finetune.py) and [`phase9/FINAL_RESULTS_AND_CONCLUSIONS.md`](file:///d:/IIITP/Intern_2_Month/UniDAC/phase9/FINAL_RESULTS_AND_CONCLUSIONS.md).*

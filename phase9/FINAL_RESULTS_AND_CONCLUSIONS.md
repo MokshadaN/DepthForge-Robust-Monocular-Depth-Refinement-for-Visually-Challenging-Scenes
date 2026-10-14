@@ -187,6 +187,15 @@ The Phase 9 evaluation pipeline generated high-resolution 6-column qualitative c
 4. **Training Curves (3-Panel):** [`phase9/results_extracted/results/phase9_training_curves.png`](file:///d:/IIITP/Intern_2_Month/UniDAC/phase9/results_extracted/results/phase9_training_curves.png)
    - Shows smooth loss decline, validation SILog convergence, and stable cosine learning rate decay.
 
+### Extended Visualizations & Statistical Analytics Suite:
+Located in [`phase9/extended_visualizations/`](file:///d:/IIITP/Intern_2_Month/UniDAC/phase9/extended_visualizations/):
+- **Training & Data:** `01_training_dynamics.png`, `02_dataset_split_balance.png`
+- **Error & Statistical Distributions:** `03_baseline_vs_refined_metrics.png`, `04_relative_error_reduction.png`, `05_per_image_error_boxplots.png`, `06_paired_absrel_scatter.png`, `07_improvement_histogram.png`
+- **Routing Reliability:** `08_routing_confusion_matrix.png`, `09_routing_confidence_by_correctness.png`
+- **Spatial & Pixel Fidelity:** `10_pixelwise_teacher_agreement.png`, `12_center_row_profiles.png`, `13_metric_summary_heatmap.png`, `14_best_and_worst_images.png`
+- **Per-Domain Qualitative Grids:** `11_qualitative_camouflage.png`, `11_qualitative_glass.png`, `11_qualitative_textureless.png`
+- **Tabular Summaries:** `dataset_split_counts.csv`, `domain_metric_summary.csv`, `per_image_improvement.csv`, `experiment_summary.txt`
+
 ---
 
 ## 💡 7. In-Depth Technical Insights
