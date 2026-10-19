@@ -1,0 +1,90 @@
+# ==============================================================================
+# Phase 10: Complete Experiment Configuration & Research Specification
+# ==============================================================================
+experiment:
+  project_name: "UniDAC / DepthForge"
+  phase: 10
+  title: "Multi-Head Domain-Expert Depth Refinement with Rigorous Evaluation"
+  version: "1.0.0"
+  random_seed: 42
+
+architecture:
+  model_type: "MultiHeadDilatedAdapter"
+  total_parameters: 228374
+  model_size_mb: 0.89
+  input_modalities:
+    channels: 5
+    components:
+      - "Base Normalized Depth (MiDaS / UniDAC)"
+      - "RGB Channel R"
+      - "RGB Channel G"
+      - "RGB Channel B"
+      - "Sobel Gradient Magnitude Energy Prior"
+  backbone:
+    name: "MiDaS_small"
+    parameters: 21200000
+    frozen: true
+  adapter_trunk:
+    stem_conv: [5, 64, 3]
+    dilations: [1, 2, 4]
+    dilation_channels: 32
+    trunk_concat_channels: 96
+    dropout: 0.10
+  routing:
+    type: "Soft Mixture-of-Experts (MoE)"
+    classifier: "AdaptiveAvgPool2d -> Linear(96, 32) -> ReLU -> Linear(32, 3)"
+    softmax_temperature: 1.0
+    domains: ["camouflage", "glass", "textureless"]
+  expert_heads:
+    count: 3
+    names: ["head_camo", "head_glass", "head_tex"]
+    conv_layers: [96, 48, 32, 1]
+    gating: "Tanh scaling"
+    residual_scale_alpha: 0.30
+
+training:
+  epochs: 60
+  batch_size: 8
+  optimizer:
+    name: "AdamW"
+    learning_rate: 0.0015
+    weight_decay: 0.0005
+    betas: [0.9, 0.999]
+  scheduler:
+    name: "CosineAnnealingLR"
+    t_max: 60
+    eta_min: 0.000005
+  loss_formulation:
+    silog_weight: 1.0
+    silog_lambda: 0.85
+    gradient_consistency_weight: 0.5
+    domain_ce_weight: 0.10
+
+dataset:
+  manifest_path: "phase10/data/dataset_manifest.json"
+  csv_manifest: "phase10/data/dataset_manifest.csv"
+  splits_source: "phase8/data/splits.json"
+  resolution: [480, 640]
+  domains:
+    camouflage:
+      source: "CAMO-FS / COD10K"
+      ground_truth_nature: "Scale-Invariant Pseudo-GT (MiDaS DPT_Large)"
+    glass:
+      source: "GSD (Glass Surface Detection)"
+      ground_truth_nature: "Scale-Invariant Pseudo-GT (MiDaS DPT_Large)"
+    textureless:
+      source: "NYU Depth v2"
+      ground_truth_nature: "Microsoft Kinect Infrared ToF Sensor [0.7m - 10.0m]"
+
+checkpoints:
+  authoritative_path: "checkpoints/phase10_multihead_best.pt"
+  phase10_local_path: "phase10/checkpoints/phase10_multihead_best.pt"
+  phase8_singlehead_path: "checkpoints/phase8_best.pt"
+
+evaluation_policy:
+  primary_metrics: "Raw Unaligned Metrics (AbsRel, RMSE, SILog, d1)"
+  secondary_metrics: "Median Scale-Aligned Metrics"
+  deprecated_metrics: "Per-image affine target-fitted least-squares (diagnostics only)"
+  sensor_bounds:
+    nyuv2: [0.7, 10.0]
+    relative_edge_cases: [0.001, null]
