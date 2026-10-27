@@ -1,0 +1,274 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1620" viewBox="0 0 1600 1620" role="img" aria-labelledby="svgTitle svgDesc">
+  <title id="svgTitle">DepthForge Phase 9 — Inference Pipeline</title>
+  <desc id="svgDesc">A five-channel input comprising RGB, MiDaS base depth and Sobel gradient feeds a shared multi-scale dilated trunk. A soft domain router predicts camouflage, glass and textureless weights. Three expert residual heads are blended, passed through a bounded tanh correction, added to base depth and clamped to zero through one.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F8FAFC"/>
+      <stop offset="1" stop-color="#EEF3FA"/>
+    </linearGradient>
+    <linearGradient id="navy" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#172B4D"/>
+      <stop offset="1" stop-color="#243F69"/>
+    </linearGradient>
+    <linearGradient id="teal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#DDF7F0"/>
+      <stop offset="1" stop-color="#C7EEE5"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#263A59" flood-opacity="0.10"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#60738D"/>
+    </marker>
+    <marker id="arrowTeal" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#168875"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#C47B2C"/>
+    </marker>
+    <style>
+      text { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172B4D; }
+      .eyebrow { font-size: 13px; font-weight: 800; letter-spacing: 2px; fill: #65758B; }
+      .title { font-size: 34px; font-weight: 800; letter-spacing: -0.6px; }
+      .subtitle { font-size: 16px; fill: #66768C; }
+      .section-title { font-size: 17px; font-weight: 800; letter-spacing: .6px; }
+      .card-title { font-size: 16px; font-weight: 750; }
+      .body { font-size: 14px; fill: #50627A; }
+      .small { font-size: 12px; fill: #65758B; }
+      .tiny { font-size: 11px; fill: #65758B; }
+      .mono { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 15px; fill: #213B5A; }
+      .white { fill: #FFFFFF; }
+      .wire { fill: none; stroke: #71839A; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; marker-end: url(#arrow); }
+      .wire-no-arrow { fill: none; stroke: #71839A; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+      .wire-teal { fill: none; stroke: #168875; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; marker-end: url(#arrowTeal); }
+      .wire-orange { fill: none; stroke: #C47B2C; stroke-width: 2.5; stroke-dasharray: 8 7; stroke-linecap: round; stroke-linejoin: round; marker-end: url(#arrowOrange); }
+      .card { fill: #FFFFFF; stroke: #D9E2ED; stroke-width: 1.5; }
+      .panel { fill: #FFFFFF; stroke: #D8E1EC; stroke-width: 1.5; }
+      .pill { font-size: 12px; font-weight: 750; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1600" height="1620" fill="url(#bg)"/>
+  <circle cx="1470" cy="65" r="150" fill="#DCE9F8" opacity="0.30"/>
+  <circle cx="70" cy="1490" r="185" fill="#D9F2EB" opacity="0.32"/>
+
+  <!-- Header -->
+  <text x="80" y="58" class="eyebrow">DEPTHFORGE · MODEL ARCHITECTURE</text>
+  <text x="80" y="104" class="title">Phase 9 — Inference Pipeline</text>
+  <text x="80" y="136" class="subtitle">Multi-scale depth refinement with soft domain routing and bounded residual correction</text>
+  <rect x="1375" y="62" width="145" height="40" rx="20" fill="#172B4D"/>
+  <text x="1447.5" y="87" text-anchor="middle" class="pill white">PHASE 09</text>
+
+  <!-- 1. Inputs -->
+  <text x="80" y="180" class="eyebrow">01 / INPUTS</text>
+  <g filter="url(#shadow)">
+    <rect x="80" y="198" width="390" height="92" rx="16" class="card"/>
+    <rect x="605" y="198" width="390" height="92" rx="16" class="card"/>
+    <rect x="1130" y="198" width="390" height="92" rx="16" class="card"/>
+  </g>
+  <!-- RGB icon -->
+  <rect x="101" y="219" width="50" height="49" rx="9" fill="#E8F0FF"/>
+  <rect x="110" y="228" width="31" height="27" rx="4" fill="#4E7CD9"/>
+  <circle cx="119" cy="236" r="4" fill="#F7CE73"/>
+  <path d="M112 251 L122 241 L128 247 L134 239 L140 251 Z" fill="#8ED3B2"/>
+  <text x="168" y="235" class="card-title">RGB image</text>
+  <text x="168" y="258" class="body">3 channels · appearance cues</text>
+  <text x="168" y="277" class="small">H × W × 3</text>
+  <!-- plus -->
+  <circle cx="537" cy="244" r="20" fill="#E5EBF3"/>
+  <path d="M529 244 H545 M537 236 V252" stroke="#697B91" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Base depth icon -->
+  <rect x="626" y="219" width="50" height="49" rx="9" fill="#E5F6F1"/>
+  <path d="M635 255 L643 243 L651 248 L660 228 L668 255 Z" fill="#168875" opacity="0.9"/>
+  <path d="M635 259 H668" stroke="#0E6C5E" stroke-width="2" stroke-linecap="round"/>
+  <text x="693" y="235" class="card-title">MiDaS base depth</text>
+  <text x="693" y="258" class="body">1 channel · initial estimate</text>
+  <text x="693" y="277" class="small">H × W × 1</text>
+  <!-- plus -->
+  <circle cx="1062" cy="244" r="20" fill="#E5EBF3"/>
+  <path d="M1054 244 H1070 M1062 236 V252" stroke="#697B91" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Sobel icon -->
+  <rect x="1151" y="219" width="50" height="49" rx="9" fill="#FFF0DD"/>
+  <path d="M1159 229 H1193 M1159 239 H1193 M1159 249 H1193 M1165 224 V263 M1176 224 V263 M1187 224 V263" stroke="#C47B2C" stroke-width="2" opacity="0.8"/>
+  <text x="1218" y="235" class="card-title">Sobel gradient energy</text>
+  <text x="1218" y="258" class="body">1 channel · edge cue</text>
+  <text x="1218" y="277" class="small">H × W × 1</text>
+
+  <!-- Inputs merge connectors -->
+  <path d="M275 290 V315 H800 M800 290 V315 M1325 290 V315 H800" class="wire-no-arrow"/>
+  <path d="M800 315 V331" class="wire"/>
+  <g filter="url(#shadow)">
+    <rect x="535" y="334" width="530" height="60" rx="15" fill="#E8F0FF" stroke="#B9CCEF" stroke-width="1.5"/>
+  </g>
+  <rect x="555" y="349" width="42" height="30" rx="7" fill="#416FC2"/>
+  <text x="576" y="369" text-anchor="middle" class="pill white">5 ch</text>
+  <text x="615" y="358" class="card-title">Concatenated 5-channel input tensor</text>
+  <text x="615" y="379" class="small">RGB (3) + base depth (1) + Sobel energy (1)</text>
+
+  <!-- Arrow to trunk -->
+  <path d="M800 394 V422" class="wire"/>
+
+  <!-- 2. Shared trunk -->
+  <rect x="70" y="425" width="1460" height="390" rx="23" fill="#F2F6FC" stroke="#C9D7E8" stroke-width="1.5"/>
+  <text x="105" y="462" class="section-title">02 / SHARED MULTI-SCALE DILATED TRUNK</text>
+  <rect x="1288" y="440" width="205" height="31" rx="15.5" fill="#172B4D"/>
+  <text x="1390.5" y="460" text-anchor="middle" class="pill white">228K parameters total</text>
+
+  <!-- Stem -->
+  <g filter="url(#shadow)">
+    <rect x="112" y="535" width="280" height="154" rx="16" class="card"/>
+  </g>
+  <rect x="132" y="555" width="52" height="30" rx="8" fill="#E8F0FF"/>
+  <text x="158" y="575" text-anchor="middle" class="pill" fill="#315DA8">STEM</text>
+  <text x="132" y="610" class="card-title">Feature extraction</text>
+  <text x="132" y="635" class="body">Conv 5 → 64</text>
+  <text x="132" y="657" class="body">BatchNorm + ReLU</text>
+  <text x="132" y="679" class="body">Dropout2d (p = 0.10)</text>
+
+  <!-- Stem fan-out to three branches -->
+  <path d="M392 612 H438 V530 H470 M438 612 H470 M438 612 V694 H470" class="wire-no-arrow"/>
+  <path d="M438 530 H470" class="wire"/>
+  <path d="M438 612 H470" class="wire"/>
+  <path d="M438 694 H470" class="wire"/>
+
+  <!-- Dilation branches -->
+  <g filter="url(#shadow)">
+    <rect x="470" y="495" width="350" height="70" rx="14" fill="#E4F6F1" stroke="#B4E2D6" stroke-width="1.5"/>
+    <rect x="470" y="577" width="350" height="70" rx="14" fill="#E8F0FF" stroke="#C2D4F4" stroke-width="1.5"/>
+    <rect x="470" y="659" width="350" height="70" rx="14" fill="#FFF0DD" stroke="#F2D3A8" stroke-width="1.5"/>
+  </g>
+  <circle cx="500" cy="530" r="17" fill="#168875"/>
+  <text x="500" y="535" text-anchor="middle" class="pill white">1</text>
+  <text x="528" y="522" class="card-title">Dilated convolution · d = 1</text>
+  <text x="528" y="544" class="body">32 channels · fine/local context</text>
+  <circle cx="500" cy="612" r="17" fill="#416FC2"/>
+  <text x="500" y="617" text-anchor="middle" class="pill white">2</text>
+  <text x="528" y="604" class="card-title">Dilated convolution · d = 2</text>
+  <text x="528" y="626" class="body">32 channels · intermediate context</text>
+  <circle cx="500" cy="694" r="17" fill="#C47B2C"/>
+  <text x="500" y="699" text-anchor="middle" class="pill white">4</text>
+  <text x="528" y="686" class="card-title">Dilated convolution · d = 4</text>
+  <text x="528" y="708" class="body">32 channels · broad context</text>
+
+  <!-- Branch outputs merge -->
+  <path d="M820 530 H855 V612 H890 M820 612 H890 M820 694 H855 V612" class="wire-no-arrow"/>
+  <path d="M855 612 H890" class="wire"/>
+  <g filter="url(#shadow)">
+    <rect x="890" y="548" width="300" height="128" rx="16" fill="#FFFFFF" stroke="#C7D6E8" stroke-width="1.5"/>
+  </g>
+  <rect x="912" y="568" width="50" height="30" rx="8" fill="#DDE9F8"/>
+  <text x="937" y="588" text-anchor="middle" class="pill">96 ch</text>
+  <text x="912" y="619" class="card-title">Concatenate features</text>
+  <text x="912" y="642" class="body">32 + 32 + 32 = 96 channels</text>
+  <text x="912" y="660" class="small">Spatial dimensions preserved</text>
+
+  <!-- Trunk feature output arrow -->
+  <path d="M1190 612 H1260 V784 H800 V841" class="wire"/>
+  <rect x="1032" y="764" width="245" height="29" rx="14.5" fill="#FFFFFF" stroke="#D7E0EB"/>
+  <text x="1154.5" y="783" text-anchor="middle" class="small">Shared 96-channel feature map</text>
+
+  <!-- 3. Routing and experts -->
+  <text x="80" y="858" class="eyebrow">03 / DOMAIN ROUTING + EXPERT RESIDUALS</text>
+  <!-- Shared-feature distribution bus -->
+  <path d="M800 841 V872 H300 V895 M800 872 H1110 V895 M800 872 H680 V895 M800 872 H960 V895" class="wire-no-arrow"/>
+  <path d="M300 872 V895" class="wire"/>
+  <path d="M680 872 V895" class="wire"/>
+  <path d="M960 872 V895" class="wire"/>
+  <path d="M1240 872 V895" class="wire"/>
+
+  <!-- Router card -->
+  <g filter="url(#shadow)">
+    <rect x="80" y="895" width="440" height="238" rx="18" fill="#F1EDFF" stroke="#D5C9FA" stroke-width="1.5"/>
+  </g>
+  <rect x="103" y="916" width="108" height="28" rx="14" fill="#6B55B8"/>
+  <text x="157" y="935" text-anchor="middle" class="pill white">SOFT ROUTER</text>
+  <text x="103" y="969" class="card-title">Domain weight prediction</text>
+  <text x="103" y="994" class="mono">GAP(96) → Linear(96→32)</text>
+  <text x="103" y="1017" class="mono">→ ReLU → Linear(32→3)</text>
+  <text x="103" y="1040" class="mono">→ Softmax</text>
+  <rect x="103" y="1057" width="394" height="1.5" fill="#DDD5F7"/>
+  <text x="103" y="1080" class="body">Outputs: w_camo, w_glass, w_tex</text>
+  <text x="103" y="1102" class="body">Weights sum to 1.0</text>
+  <rect x="358" y="1109" width="139" height="25" rx="12.5" fill="#6B55B8"/>
+  <text x="427.5" y="1126" text-anchor="middle" class="pill white">94.4% accuracy*</text>
+
+  <!-- Expert head cards -->
+  <g filter="url(#shadow)">
+    <rect x="565" y="895" width="250" height="238" rx="18" fill="#E5F7F2" stroke="#B7E5D9" stroke-width="1.5"/>
+    <rect x="835" y="895" width="250" height="238" rx="18" fill="#E8F0FF" stroke="#C4D6F4" stroke-width="1.5"/>
+    <rect x="1105" y="895" width="250" height="238" rx="18" fill="#FFF2E2" stroke="#F0D4AF" stroke-width="1.5"/>
+  </g>
+  <rect x="587" y="916" width="70" height="25" rx="12.5" fill="#168875"/>
+  <text x="622" y="933" text-anchor="middle" class="pill white">EXPERT 1</text>
+  <text x="587" y="971" class="card-title">Camouflage</text>
+  <text x="587" y="998" class="body">Expert residual</text>
+  <text x="587" y="1022" class="mono">δ_camo</text>
+  <path d="M587 1042 H790" stroke="#B7E5D9" stroke-width="1.5"/>
+  <text x="587" y="1067" class="small">Specialized correction</text>
+  <text x="587" y="1087" class="small">for camouflaged scenes</text>
+
+  <rect x="857" y="916" width="70" height="25" rx="12.5" fill="#416FC2"/>
+  <text x="892" y="933" text-anchor="middle" class="pill white">EXPERT 2</text>
+  <text x="857" y="971" class="card-title">Glass</text>
+  <text x="857" y="998" class="body">Expert residual</text>
+  <text x="857" y="1022" class="mono">δ_glass</text>
+  <path d="M857 1042 H1060" stroke="#C4D6F4" stroke-width="1.5"/>
+  <text x="857" y="1067" class="small">Specialized correction</text>
+  <text x="857" y="1087" class="small">for transparent surfaces</text>
+
+  <rect x="1127" y="916" width="70" height="25" rx="12.5" fill="#C47B2C"/>
+  <text x="1162" y="933" text-anchor="middle" class="pill white">EXPERT 3</text>
+  <text x="1127" y="971" class="card-title">Textureless</text>
+  <text x="1127" y="998" class="body">Expert residual</text>
+  <text x="1127" y="1022" class="mono">δ_tex</text>
+  <path d="M1127 1042 H1330" stroke="#F0D4AF" stroke-width="1.5"/>
+  <text x="1127" y="1067" class="small">Specialized correction</text>
+  <text x="1127" y="1087" class="small">for low-texture regions</text>
+
+  <!-- Lines from router/experts into blend -->
+  <path d="M300 1133 V1172 H600 V1192" class="wire"/>
+  <path d="M690 1133 V1192" class="wire"/>
+  <path d="M960 1133 V1192" class="wire"/>
+  <path d="M1230 1133 V1172 H1000 V1192" class="wire"/>
+
+  <!-- Soft blend -->
+  <g filter="url(#shadow)">
+    <rect x="345" y="1192" width="910" height="105" rx="18" fill="#FFFFFF" stroke="#BFD7D2" stroke-width="1.6"/>
+  </g>
+  <text x="380" y="1224" class="eyebrow" fill="#168875">04 / SOFT ROUTING BLEND</text>
+  <text x="800" y="1260" text-anchor="middle" class="mono" style="font-size:19px;font-weight:700;">δ = w_camo·δ_camo + w_glass·δ_glass + w_tex·δ_tex</text>
+  <text x="800" y="1282" text-anchor="middle" class="small">Router weights control each expert’s contribution to the final correction</text>
+
+  <!-- Blend to residual output -->
+  <path d="M800 1297 V1331" class="wire-teal"/>
+
+  <!-- Base-depth skip path (dashed orange) -->
+  <path d="M800 290 H1540 V1375 H1255" class="wire-orange"/>
+  <rect x="1370" y="1165" width="150" height="48" rx="12" fill="#FFF4E7" stroke="#EBC997" stroke-width="1.2"/>
+  <text x="1445" y="1185" text-anchor="middle" class="pill" fill="#A7651F">BASE-DEPTH</text>
+  <text x="1445" y="1202" text-anchor="middle" class="small" fill="#A7651F">skip path</text>
+
+  <!-- Residual / clamp -->
+  <g filter="url(#shadow)">
+    <rect x="250" y="1331" width="1005" height="100" rx="18" fill="url(#teal)" stroke="#A7DACE" stroke-width="1.6"/>
+  </g>
+  <text x="285" y="1361" class="eyebrow" fill="#137766">05 / TANH-GATED RESIDUAL UPDATE</text>
+  <text x="752" y="1395" text-anchor="middle" class="mono" style="font-size:20px;font-weight:800;">D_refined = clamp(D_base + 0.30 × tanh(δ), 0, 1)</text>
+  <text x="752" y="1415" text-anchor="middle" class="small">Bounded correction · output constrained to the normalized depth range</text>
+
+  <!-- Output -->
+  <path d="M752 1431 V1462" class="wire-teal"/>
+  <g filter="url(#shadow)">
+    <rect x="510" y="1462" width="485" height="93" rx="19" fill="url(#navy)"/>
+  </g>
+  <rect x="535" y="1483" width="50" height="49" rx="11" fill="#FFFFFF" opacity="0.16"/>
+  <path d="M542 1520 L550 1507 L558 1514 L568 1492 L578 1520 Z" fill="#C4F2E5"/>
+  <text x="606" y="1496" class="card-title white">Refined depth map</text>
+  <text x="606" y="1521" class="white" style="font-size:17px;font-weight:750;">D_refined ∈ [0, 1]</text>
+  <text x="606" y="1540" class="small" style="fill:#CFD8E6;">Normalized output</text>
+
+  <!-- Footer notes -->
+  <text x="80" y="1585" class="small">*Routing accuracy as reported in the supplied architecture summary; it is domain-classification accuracy, not depth accuracy.</text>
+  <text x="1520" y="1585" text-anchor="end" class="small">DepthForge · Phase 9</text>
+</svg>

@@ -1,0 +1,161 @@
+{
+  "phases": [
+    {
+      "id": 1,
+      "title": "Baseline Object Distance Estimation",
+      "subtitle": "Establish the foundation",
+      "tag": "FOUNDATION",
+      "color": "#3b82f6",
+      "goal": "Integrate 2D object bounding boxes (YOLOv11) with dense monocular depth maps (UniDAC) for metric distance estimation on real-world road scenes.",
+      "technique": "Gaussian-weighted spatial pooling over object masks with median scale calibration on KITTI-360. YOLO11 detects objects, UniDAC provides depth, and median-depth sampling inside each bounding box yields metric distances.",
+      "findings": [
+        "Solid performance on rigid road objects (cars, pedestrians, cyclists)",
+        "Pipeline validated on standard automotive scenarios",
+        "Distance estimation within acceptable error bounds for highway driving"
+      ],
+      "problems": [],
+      "evidence": ["Pipeline diagram", "Sample prediction panels", "Baseline distance results on KITTI-360"],
+      "outcome": "Working baseline pipeline. Accurate for road scenes, but untested on optically complex environments."
+    },
+    {
+      "id": 2,
+      "title": "Discovery of Optical Failure Cases",
+      "subtitle": "When vision fails",
+      "tag": "FAILURE DISCOVERY",
+      "color": "#ef4444",
+      "goal": "Stress-test the baseline system on non-automotive, optically complex scenes to identify fundamental failure modes.",
+      "technique": "Systematic evaluation of baseline depth estimator on camouflage, transparent glass, and textureless scenes from diverse image sources.",
+      "findings": [
+        "Camouflage: Animal boundaries blended completely into foliage — depth maps flat across animal-tree interfaces",
+        "Glass & Transparency: Wine glasses and beakers invisible in depth maps — estimator looked through to background",
+        "Textureless Walls: Smooth white rooms suffered severe spherical bulging and depth warping"
+      ],
+      "problems": ["Silhouette flattening", "Depth-bleeding through glass", "False curvature on flat surfaces"],
+      "evidence": ["Failure gallery with 3 domains", "Side-by-side RGB vs depth failure examples"],
+      "outcome": "Defined the three target failure domains that DepthForge is designed to address."
+    },
+    {
+      "id": 3,
+      "title": "Multi-Domain Benchmark Assembly",
+      "subtitle": "Building the evaluation set",
+      "tag": "BENCHMARK",
+      "color": "#f59e0b",
+      "goal": "Construct a rigorous multi-domain evaluation benchmark using authentic images from established computer-vision datasets.",
+      "technique": "Curated images from COD10K (camouflage), GSD Glass Surface Detection dataset (glass), and NYU Depth v2 (textureless indoor). Applied scene-level grouping to prevent train/test leakage.",
+      "findings": [
+        "COD10K provides diverse camouflage scenes with confirmed ground truth",
+        "GSD dataset contains real glass surfaces and dual-view pairs",
+        "NYU Depth v2 offers clean indoor/textureless depth references"
+      ],
+      "problems": ["Initial dataset had unbalanced domain representation (95% camouflage)"],
+      "evidence": ["Dataset composition table", "Examples of depth bleeding and surface distortion"],
+      "outcome": "Assembled 3-domain benchmark; initial imbalance identified as a problem to fix."
+    },
+    {
+      "id": 4,
+      "title": "Foundational Model Bake-Off",
+      "subtitle": "Choosing the right backbone",
+      "tag": "EVALUATION",
+      "color": "#8b5cf6",
+      "goal": "Systematically compare 5 major depth estimation architectures to select the optimal backbone and teacher model.",
+      "technique": "Evaluated MiDaS-Small, MiDaS-Hybrid, UniDAC (DINOv2+DPT), DPT-Large, and Depth Anything under comparable protocols on the 3-domain benchmark.",
+      "findings": [
+        "MiDaS-Small (21M params): Fast ~30 FPS, heavily blurred high-frequency contours",
+        "MiDaS-Hybrid (68M params): Balanced, moderate edge recovery",
+        "UniDAC (DINOv2+DPT): Strong semantic reasoning, struggled on refractive boundaries",
+        "DPT-Large (345M params): Superb geometric fidelity, too heavy for real-time edge devices"
+      ],
+      "problems": ["No single model solved all three domains well"],
+      "evidence": ["Model bake-off table", "Qualitative comparison grid across domains"],
+      "outcome": "Selected MiDaS-Small as baseline (fast, trainable), DPT-Large as teacher pseudo-GT provider."
+    },
+    {
+      "id": 5,
+      "title": "Early Lightweight Adapters",
+      "subtitle": "First refinement attempts",
+      "tag": "ARCHITECTURE",
+      "color": "#10b981",
+      "goal": "Design a lightweight plug-in adapter that refines MiDaS-Small output without retraining the expensive backbone.",
+      "technique": "Edge-guided single-scale residual adapter. Input: [base depth || RGB || Sobel gradient]. Output: residual correction clamped via tanh gating.",
+      "findings": [
+        "Residual adapter concept validated — small corrections can recover boundaries",
+        "Single-scale processing misses multi-resolution context",
+        "Sobel edge prior is a strong signal for boundary recovery"
+      ],
+      "problems": ["Single dilation insufficient for both fine edges and regional geometry"],
+      "evidence": ["Early training curves", "Parameter count vs performance trade-off"],
+      "outcome": "Proved adapter concept. Motivated multi-scale dilated design."
+    },
+    {
+      "id": 6,
+      "title": "Multi-Scale Dilated Architecture",
+      "subtitle": "Capturing edge and context",
+      "tag": "ARCHITECTURE",
+      "color": "#06b6d4",
+      "goal": "Extend the adapter with parallel dilated convolutions at multiple receptive fields to capture both fine edge transitions and wide surface context.",
+      "technique": "Parallel branches with dilations d={1,2,4} concatenated into 96-channel feature map. Tanh gating with alpha=0.30 for stable residual magnitude control.",
+      "findings": [
+        "Multi-scale features improve both boundary sharpness and surface continuity",
+        "Dilation d=1 captures fine edge details, d=4 captures regional curvature context",
+        "Tanh gating prevents runaway residuals while allowing meaningful corrections"
+      ],
+      "problems": ["Still a single-head design — same correction applied regardless of scene domain"],
+      "evidence": ["Architecture diagram", "Comparison to single-scale baseline", "Ablation on dilation values"],
+      "outcome": "Multi-scale dilated trunk became the shared foundation for Phase 9's multi-head design."
+    },
+    {
+      "id": 7,
+      "title": "Comprehensive Diagnostic Audit",
+      "subtitle": "Exposing hidden flaws",
+      "tag": "AUDIT",
+      "color": "#f97316",
+      "goal": "Conduct a systematic audit of the evaluation pipeline to identify and correct methodological flaws before final reporting.",
+      "technique": "Manual review of loss functions, dataset splits, metric definitions, and training supervision sources.",
+      "findings": [
+        "FLAW 1 — Self-Distillation Loop: Model supervised by its own base depth (circular bias, cannot generalize)",
+        "FLAW 2 — Flawed Metric (BSI): Boundary Smoothness Index rewarded high-frequency hallucinated noise",
+        "FLAW 3 — Class Imbalance: 95.8% camouflage vs only 4.2% glass/textureless in training data",
+        "FLAW 4 — Grid-Crop Data Leakage: Sub-crops of same photos in both train and test splits"
+      ],
+      "problems": ["All previous metrics potentially contaminated by these four flaws"],
+      "evidence": ["Audit checklist", "Before/after metric comparisons", "Split leakage visualization"],
+      "outcome": "Corrected protocol: cross-model supervision, SILog+Grad loss, balanced dataset, scene-level splits."
+    },
+    {
+      "id": 8,
+      "title": "Final Verified Pipeline",
+      "subtitle": "Clean experimental methodology",
+      "tag": "VERIFIED",
+      "color": "#22c55e",
+      "goal": "Re-run the full experiment with all audit corrections applied to establish a trustworthy performance baseline.",
+      "technique": "Cross-model DPT-Large pseudo-GT supervision. SILog + Gradient Consistency loss. Authentic 522-image balanced dataset. Zero-leakage scene-level partitioning. 40 epochs on GPU.",
+      "findings": [
+        "AbsRel improved +13.3% overall vs baseline after correcting all flaws",
+        "Camouflage +13.5%, Glass -17.1% SILog error, Textureless +7.6%",
+        "Single-head adapter (83.4K params) achieved meaningful improvements under fair evaluation"
+      ],
+      "problems": ["Single head architecture — cannot specialize per domain", "Dataset still smaller (522 images)"],
+      "evidence": ["Corrected training curves", "Per-domain metric tables", "Phase 8 qualitative panels"],
+      "outcome": "Clean benchmark. Motivated Phase 9: add domain-specialist heads and automated routing."
+    },
+    {
+      "id": 9,
+      "title": "Multi-Head Domain-Expert Adapter",
+      "subtitle": "Specialist experts + automatic routing",
+      "tag": "BREAKTHROUGH",
+      "color": "#a855f7",
+      "goal": "Introduce three domain-specialist expert heads with a learned soft domain router to replace the monolithic single-head design.",
+      "technique": "Shared multi-scale dilated trunk → three expert heads (camouflage, glass, textureless) → soft router blends expert residuals via learned domain weights → tanh gated residual addition.",
+      "findings": [
+        "Overall AbsRel reduced +2.9% (0.5848 → 0.5680) across 450-image test set",
+        "Glass domain: +4.7% AbsRel improvement — dedicated expert resolves refraction ambiguity",
+        "Camouflage: +3.8% AbsRel improvement — crisp boundary separation recovered",
+        "94.4% routing accuracy (425/450) with zero test-time domain labels",
+        "Ultra-lightweight: 228,374 parameters (~857 KB) with <5ms GPU inference"
+      ],
+      "problems": ["SILog slightly worsens (sharp edges vs smooth pseudo-GT divergence in log space)", "Textureless only +0.2% (model already stable there)"],
+      "evidence": ["Per-domain metric table", "Routing confusion matrix (94.4%)", "Qualitative panels for all 3 domains", "Training convergence curves", "Phase 8 vs Phase 9 comparison"],
+      "outcome": "DepthForge Phase 9: production-ready multi-expert depth refinement with autonomous domain routing."
+    }
+  ]
+}
